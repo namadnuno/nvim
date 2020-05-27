@@ -1,0 +1,28 @@
+{
+  "diagnostic.warningSign": "⚠️",
+  "diagnostic.errorSign": "❌",
+  "diagnostic.hintSign": "⚠️",
+  "diagnostic.infoSign": "⚠️",
+  "diagnostic.enable": true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "Markdown",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "html",
+    "rust"
+  ],
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": true,
+  "prettier.stylelintIntegration": false,
+  "prettier.disableSuccessMessage": true,
+  "suggest.removeDuplicateItems": true
+}
