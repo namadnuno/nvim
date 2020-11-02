@@ -5,17 +5,17 @@ let g:gruvbox_italic = 1
 let g:molokai_original = 1
 "let g:rehash256 = 1
 
-"colorscheme gruvbox
+" colorscheme onedark
 colorscheme eighties
+
 " }}}
 
 " #ALE {{{
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 
-let g:ale_fixers = {}
-let g:ale_fixers['css'] = ['stylelint']
-let g:ale_fixers['scss'] = ['prettier']
+
+let b:ale_fixers = ['prettier', 'eslint']
 let g:ale_fix_on_save = 1 " Fix files automatically on save
 let g:ale_linters_explicit = 1
 let b:ale_warn_about_trailing_whitespace = 1
@@ -41,21 +41,20 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'one dark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'gitbranch', 'readonly', 'filename', 'modified'] ]
+      \             [ 'currentfunction','cocstatus', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component': {
+      \   'charvaluehex': '0x%B'
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
-      \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction'
+      \   'gitbranch': 'FugitiveHead',
+      \   'currentfunction': 'CocCurrentFunction',
+      \   'cocstatus': 'coc#status'
       \ },
       \ }
-" }}}
-" AirLine
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_theme='base16_seti'
 
 " #EMMET {{{
 let g:user_emmet_expandabbr_key='<C-@>'
@@ -71,49 +70,46 @@ let g:user_emmet_settings = {
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" Remap keys for gotos
+let g:coc_global_extensions = ['coc-vetur']
+
+" " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use `[c` and `]c` to navigate diagnosticsU
+" " Use `[c` and `]c` to navigate diagnosticsU
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 
-" Hide floating windows
+" " Hide floating windows
 nmap <silent> <leader>fh <Plug>(coc-float-hide)
-" Use U to show documentation in preview window
+" " Use U to show documentation in preview window
 nnoremap <silent> U :call <SID>show_documentation()<CR>
 
-" Remap for rename current word
+" " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)"
 
 " Remap for format selected region
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <silent> <leader>f <Plug>(coc-format-selected)
 
-" Show all diagnostics
+" " Show all diagnostics
 nnoremap <silent> <space>a  :CocList diagnostics<cr>
-" Manage extensions
+" " Manage extensions
 nnoremap <silent> <space>e  :CocList extensions<cr>
-" Show commands
+" " Show commands
 nnoremap <silent> <space>c  :CocList commands<cr>
-" Find symbol of current document
+" " Find symbol of current document
 nnoremap <silent> <space>o  :CocList outline<cr>
-" Search workspace symbols
+" " Search workspace symbols
 nnoremap <silent> <space>s  :CocList -I symbols<cr>
-" Do default action for next item.
+" " Do default action for next item.
 nnoremap <silent> <space>j  :CocNext<CR>
-" Do default action for previous item.
+" " Do default action for previous item.
 nnoremap <silent> <space>k  :CocPrev<CR>
-" Resume latest coc list
+" " Resume latest coc list
 nnoremap <silent> <space>p  :CocListResume<CR>
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
 
 noremap <silent> <Leader>k :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -153,22 +149,8 @@ augroup pencil
 augroup END
 "}}}
 
-" #ULTILSNIPS {{{
-" let g:UltiSnipsExpandTrigger="<C-l>"
-" let g:UltiSnipsJumpForwardTrigger="<C-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<C-z>"
-" let g:UltiSnipsSnippetsDir="~/.config/nvim/snips"
-"let g:UltiSnipsSnippetDirectories=["UtilSnips", "snips"]
-"}}}
-
-" #NETRW {{{
-" Set preferred view
-let g:netrw_liststyle = 1
-" Remove banner
-let g:netrw_banner = 0
-" }}}
-
 " #FZF {{{
+let g:fzf_command_prefix = 'FZF'
 nnoremap <Leader>b :FZFBuffers<CR>
 nnoremap <Leader>h :FZFHistory<CR>
 nnoremap <Leader>t :FZFBTags<CR>
@@ -179,7 +161,8 @@ nnoremap <Leader>p :FZFGitFiles --exclude-standard --others --cached<CR>
 nnoremap <Leader>gt :FZFRg<CR>
 
 " floating fzf window with borders
-let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
+"let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
+
 
 function! FZFWithDevIcons()
   let l:fzf_files_options = ' -m --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up --preview "bat --color always --style numbers {2..}"'
@@ -322,33 +305,30 @@ nmap <leader>gs :Gstatus<CR>
 
 " VIM-FLOATERM {{{
 let g:floaterm_background = "#282828"
-let g:floaterm_position = "center"
+let g:floaterm_position = "bottom"
 let g:floaterm_border_bgcolor = "#282828"
 let g:floaterm_keymap_new    = "<F7>"
 let g:floaterm_keymap_prev   = "<F8>"
 let g:floaterm_keymap_next   = "<F9>"
 let g:floaterm_keymap_toggle = "<F10>"
+let g:floaterm_autoclose=1
+let g:floaterm_height=0.95
+let g:floaterm_width=0.95
 " }}}
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" NNN
-let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let NERDTreeShowHidden=1
 
-let g:nnn#action = {
-      \ '<c-o>': 'edit',
-      \ '<c-t>': 'tab split',
-      \ '<c-x>': 'split',
-      \ '<c-v>': 'vsplit' }
-
-nnoremap <leader>n :NnnPicker<CR>
-
-set nornu
-
-
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
+function! ToggleNERDTree()
+  NERDTreeToggle
+  " Set NERDTree instances to be mirrored
+  silent NERDTreeMirror
+endfunction
+map <C-n> :call ToggleNERDTree()<CR>
+map <leader>N :NERDTreeFind<CR>
 
 nmap <expr> <silent> <C-d> <SID>select_current_word()
 function! s:select_current_word()
@@ -362,3 +342,35 @@ endfunc
 "Tabolus
 let tabulousLabelNameOptions = ':p:.'
 let g:tabulousLabelNameTruncate = 0
+
+" Ctrf
+nmap     <C-F>f <Plug>CtrlSFPrompt
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+
+command! FileHistory execute ":FZFBCommits"
+nmap cc :FZFCommands<CR>
+command! B execute "FZFBuffers"
+nmap <leader>f :Prettier<CR>
+nmap <leader>a :CtrlSF -R ""<Left>
+nmap <leader>t :call NeoI18nShow() <CR>
+nmap <leader>T :call NeoI18nAdd() <CR>
+
+nmap <leader>g :FloatermNew! EDITOR=floaterm bash -c 'lazygit'; exit<CR>
+nmap <leader>d :FloatermNew! EDITOR=floaterm bash -c 'lazydocker'; exit<CR>
+
+"" Prettier settings"
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#autoformat = 1
+let g:prettier#config#jsx_bracket_same_line = 'false'
+let g:prettier#config#arrow_parens = 'avoid'
+let g:prettier#config#trailing_comma = 'es5'
+let g:prettier#config#print_width = '100'
+
+command! Filename execute ":echo expand('%:p')"
+command! Config execute ":tabe ~/.config/nvim/init.vim"
+command! SourceConfig execute ":so ~/.config/nvim/init.vim"
+
+autocmd FileType scss setl iskeyword+=@-@
+

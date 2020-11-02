@@ -1,5 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
-let g:netrw_dirhist_5='/Users/nunoalexandre/Code/book'
+let g:netrw_dirhistcnt =4
 let g:netrw_dirhist_4='/Users/nunoalexandre/.config/nvim'
-let g:netrw_dirhist_3='/Users/nunoalexandre/Code/ts-tranning/test-1'
+let g:netrw_dirhist_3='/Users/nunoalexandre/Code/i18nallyvim'
+let g:netrw_dirhist_2='/Users/nunoalexandre/Code/service-and-smile/prod_environment/haendlerportal'
+let g:netrw_dirhist_1='/Users/nunoalexandre/.config/nvim'
+let g:netrw_dirhist_0='/Users/nunoalexandre/Code/service-smile/service-smile-lms'
+let g:netrw_dirhist_9='/Users/nunoalexandre/Code/service-smile/service-smile-lms/resources/views'
+let g:netrw_dirhist_8='/Users/nunoalexandre/Code/service-smile/service-smile-lms/resources'
+let g:netrw_dirhist_7='/Users/nunoalexandre/Code/service-smile/service-smile-lms'
+let g:netrw_dirhist_6='/Users/nunoalexandre/Code/service-smile/service-smile-lms/resources/js/components/Appointments/Calendar'
+let g:netrw_dirhist_5='/Users/nunoalexandre/Code/book'

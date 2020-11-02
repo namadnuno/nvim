@@ -56,10 +56,29 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
-nnoremap <C-left> :tabprevious<CR>
-nnoremap <C-right> :tabnext<CR>
+nnoremap <C-b> :tabprevious<CR>
+nnoremap <C-N> :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
 nnoremap <leader>w :tabclose<CR>
 
+" For git diffs
+nnoremap <leader>G :Gdiff<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
 nnoremap n nzz
 nnoremap N Nzz
+noremap <Leader>s :update<CR>
+
+noremap - :tabm -1<CR>
+noremap = :tabm +1<CR>
+nmap <silent> tt :terminal<CR>
+tnoremap <Esc> <C-\><C-n>
+
+inoremap jj <esc>
+nmap <silent> ss :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+noremap <leader>S :set spell spelllang=en_us <CR>
+
+nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>

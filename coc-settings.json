@@ -24,5 +24,7 @@
   "prettier.eslintIntegration": true,
   "prettier.stylelintIntegration": false,
   "prettier.disableSuccessMessage": true,
-  "suggest.removeDuplicateItems": true
+  "suggest.removeDuplicateItems": true,
+  "vetur.useWorkspaceDependencies": true,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips"
 }
