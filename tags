@@ -13,7 +13,7 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;
 0	coc-settings.json	/^    "Markdown",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
 0	coc-settings.json	/^  "eslint.filetypes": ["typescript"],$/;"	s	array:eslint.filetypes
 1	coc-settings.json	/^    "javascript",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
-2	coc-settings.json	/^    "typescript",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
+2	coc-settings.json	/^    "_typescript",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
 3	coc-settings.json	/^    "typescriptreact",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
 4	coc-settings.json	/^    "json",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
 5	coc-settings.json	/^    "html",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
@@ -45,7 +45,6 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;
 <Leader>pf	plugin_config.vim	/^nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>$/;"	m
 <Leader>r	keys.vim	/^nnoremap <Leader>r :so ~\/.config\/nvim\/init.vim<CR>$/;"	m
 <Leader>s	keys.vim	/^noremap <Leader>s :update<CR>$/;"	m
-<Leader>x	plugin_config.vim	/^nnoremap <silent> <Leader>x :FZFCommits<CR>$/;"	m
 <S-Tab>	keys.vim	/^inoremap <S-Tab> <C-d>$/;"	m
 <TAB>	plugin_config.vim	/^inoremap <expr><TAB>  pumvisible() ? "\\<C-n>" : "\\<C-x><C-o>"$/;"	m
 <TAB>	plugin_config.vim	/^inoremap <silent><expr> <TAB>$/;"	m
@@ -117,7 +116,8 @@ b:ale_fixers	plugin_config.vim	/^let b:ale_fixers = ['prettier', 'eslint']$/;"	v
 b:ale_linters	plugin_config.vim	/^let b:ale_linters = ['eslint', 'vls']$/;"	v
 cc	plugin_config.vim	/^nmap cc :FZFCommands<CR>$/;"	m
 coc.preferences.formatOnSaveFiletypes	coc-settings.json	/^  "coc.preferences.formatOnSaveFiletypes": [$/;"	a
-diagnostic.displayByAle	coc-settings.json	/^  "diagnostic.displayByAle": true$/;"	b
+coc.preferences.messageLevel	coc-settings.json	/^  "coc.preferences.messageLevel": "error",$/;"	s
+diagnostic.displayByAle	coc-settings.json	/^  "diagnostic.displayByAle": true,$/;"	b
 diagnostic.enable	coc-settings.json	/^  "diagnostic.enable": true,$/;"	b
 diagnostic.errorSign	coc-settings.json	/^  "diagnostic.errorSign": "❌",$/;"	s
 diagnostic.hintSign	coc-settings.json	/^  "diagnostic.hintSign": "⚠️",$/;"	s
@@ -126,6 +126,7 @@ diagnostic.warningSign	coc-settings.json	/^  "diagnostic.warningSign": "⚠️",
 document_format_and_organise_sync	lua/lsp_config.lua	/^function document_format_and_organise_sync()$/;"	f
 document_format_sync	lua/lsp_config.lua	/^function document_format_sync()$/;"	f
 eslint.filetypes	coc-settings.json	/^  "eslint.filetypes": ["typescript"],$/;"	a
+eslint.quiet	coc-settings.json	/^  "eslint.quiet": true$/;"	b
 g0	lsp_config.vim	/^nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<cr>$/;"	m
 g:SuperTabClosePreviewOnPopupClose	plugin_config.vim	/^let g:SuperTabClosePreviewOnPopupClose = 1$/;"	v
 g:SuperTabDefaultCompletionType	plugin_config.vim	/^let g:SuperTabDefaultCompletionType = "<c-n>"$/;"	v

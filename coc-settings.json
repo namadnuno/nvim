@@ -7,7 +7,7 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "Markdown",
     "javascript",
-    "typescript",
+    "_typescript",
     "typescriptreact",
     "json",
     "html",
@@ -20,5 +20,7 @@
   "prettier.disableSuccessMessage": true,
   "suggest.removeDuplicateItems": true,
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
-  "diagnostic.displayByAle": true
+  "diagnostic.displayByAle": true,
+  "coc.preferences.messageLevel": "error",
+  "eslint.quiet": true
 }

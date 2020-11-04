@@ -175,7 +175,6 @@ endtry
 let g:fzf_command_prefix = 'FZF'
 nnoremap <Leader>b :FZFBuffers<CR>
 nnoremap <Leader>h :FZFHistory<CR>
-nnoremap <silent> <Leader>x :FZFCommits<CR>
 " }}}
 
 " #RIPGREP {{{
