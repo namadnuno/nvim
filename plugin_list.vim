@@ -1,3 +1,4 @@
+let g:ale_disable_lsp = 1
 " #PLUGINS {{{
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -5,9 +6,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'reedes/vim-pencil'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-" Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -17,11 +15,15 @@ Plug 'rhysd/git-messenger.vim'
 " Fuzzy Search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
 Plug 'dyng/ctrlsf.vim'
 " Syntax Highlighting And Indentation For 100+ Languaged
 Plug 'sheerun/vim-polyglot'
 
 " Appearance and Themes
+Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
 Plug 'arzg/vim-colors-xcode'
 Plug 'kyoz/purify'
@@ -33,16 +35,21 @@ Plug 'joshdick/onedark.vim'
 
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
-Plug 'itchyny/lightline.vim'
+ Plug 'itchyny/lightline.vim'
+" Plug 'halkn/lightline-lsp'
 
 " Autocompletion, Linting & Intellisense
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-" Plug 'neovim/nvim-lsp'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" Neovim lsp Plugins
 " Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'tjdevries/nlua.nvim'
+" Plug 'tjdevries/lsp_extensions.nvim'
 " Plug 'nvim-lua/diagnostic-nvim'
+
 "Plug 'SirVer/ultisnips'
 Plug 'dense-analysis/ale'
-Plug 'honza/vim-snippets'
+"Plug 'honza/vim-snippets'
 "Plug 'algotech/ultisnips-php'
 Plug 'vim-test/vim-test'
 Plug 'cakebaker/scss-syntax.vim'
@@ -58,7 +65,6 @@ Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
@@ -78,5 +84,9 @@ Plug 'vimwiki/vimwiki'
 " Lua
 " Plug 'nvim-lua/completion-nvim'
 
-call plug#end()
 "}}}
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
+call plug#end()

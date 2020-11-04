@@ -10,15 +10,10 @@
 $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;"	v
 -	keys.vim	/^noremap - :tabm -1<CR>$/;"	m
 .x-class	templates/skeleton.scss	/^.x-class {$/;"	c
-0	coc-settings.json	/^      "filetypes": ["go"]$/;"	s	array:languageserver.golang.filetypes
-0	coc-settings.json	/^      "rootPatterns": ["go.mod", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.golang.rootPatterns
 0	coc-settings.json	/^    "Markdown",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
-1	coc-settings.json	/^      "rootPatterns": ["go.mod", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.golang.rootPatterns
+0	coc-settings.json	/^  "eslint.filetypes": ["typescript"],$/;"	s	array:eslint.filetypes
 1	coc-settings.json	/^    "javascript",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
-1gD	lsp_config.vim	/^nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<cr>$/;"	m
-2	coc-settings.json	/^      "rootPatterns": ["go.mod", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.golang.rootPatterns
 2	coc-settings.json	/^    "typescript",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
-3	coc-settings.json	/^      "rootPatterns": ["go.mod", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.golang.rootPatterns
 3	coc-settings.json	/^    "typescriptreact",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
 4	coc-settings.json	/^    "json",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
 5	coc-settings.json	/^    "html",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
@@ -35,7 +30,7 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;
 <C-k>	keys.vim	/^nnoremap <C-k> :m .-2<CR>==$/;"	m
 <C-k>	keys.vim	/^vnoremap <C-k> :m '<-2<CR>gv=gv$/;"	m
 <C-n>	plugin_config.vim	/^map <C-n> :call ToggleNERDTree()<CR>$/;"	m
-<C-p>	plugin_config.vim	/^nnoremap <silent> <C-p> :call FZFWithDevIcons()<CR>$/;"	m
+<C-p>	plugin_config.vim	/^nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>$/;"	m
 <C-t>	keys.vim	/^nnoremap <C-t> :tabnew<CR>$/;"	m
 <F1>	keys.vim	/^inoremap <F1> <ESC>$/;"	m
 <F1>	keys.vim	/^nnoremap <F1> <ESC>$/;"	m
@@ -44,20 +39,17 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;
 <F6>	plugin_config.vim	/^nmap <F6> <Plug>(ale_fix)$/;"	m
 <Leader>+	keys.vim	/^nnoremap <Leader>+ :vertical resize +5<CR>$/;"	m
 <Leader>-	keys.vim	/^nnoremap <Leader>- :vertical resize -5<CR>$/;"	m
-<Leader>T	plugin_config.vim	/^nnoremap <Leader>T :FZFTags<CR>$/;"	m
 <Leader>b	plugin_config.vim	/^nnoremap <Leader>b :FZFBuffers<CR>$/;"	m
-<Leader>gt	plugin_config.vim	/^nnoremap <Leader>gt :FZFRg<CR>$/;"	m
 <Leader>h	plugin_config.vim	/^nnoremap <Leader>h :FZFHistory<CR>$/;"	m
 <Leader>k	plugin_config.vim	/^noremap <silent> <Leader>k :call <SID>show_documentation()<CR>$/;"	m
-<Leader>p	plugin_config.vim	/^nnoremap <Leader>p :FZFGitFiles --exclude-standard --others --cached<CR>$/;"	m
+<Leader>pf	plugin_config.vim	/^nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>$/;"	m
 <Leader>r	keys.vim	/^nnoremap <Leader>r :so ~\/.config\/nvim\/init.vim<CR>$/;"	m
 <Leader>s	keys.vim	/^noremap <Leader>s :update<CR>$/;"	m
-<Leader>t	plugin_config.vim	/^nnoremap <Leader>t :FZFBTags<CR>$/;"	m
 <Leader>x	plugin_config.vim	/^nnoremap <silent> <Leader>x :FZFCommits<CR>$/;"	m
 <S-Tab>	keys.vim	/^inoremap <S-Tab> <C-d>$/;"	m
 <TAB>	plugin_config.vim	/^inoremap <expr><TAB>  pumvisible() ? "\\<C-n>" : "\\<C-x><C-o>"$/;"	m
 <TAB>	plugin_config.vim	/^inoremap <silent><expr> <TAB>$/;"	m
-<c-]>	lsp_config.vim	/^nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<cr>$/;"	m
+<Tab>	plugin_config.vim	/^inoremap <silent><expr> <Tab> coc#refresh()$/;"	m
 <cr>	plugin_config.vim	/^inoremap <expr> <cr> pumvisible() ? "\\<C-y>" : "\\<C-g>u\\<CR>"$/;"	m
 <leader>0	keys.vim	/^noremap <leader>0 :tablast<cr>$/;"	m
 <leader>1	keys.vim	/^noremap <leader>1 1gt$/;"	m
@@ -70,6 +62,7 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;
 <leader>8	keys.vim	/^noremap <leader>8 8gt$/;"	m
 <leader>9	keys.vim	/^noremap <leader>9 9gt$/;"	m
 <leader><space>	keys.vim	/^nnoremap <leader><space> :nohlsearch<CR>$/;"	m
+<leader>E	plugin_config.vim	/^nmap <leader>E <Plug>(ale_next_wrap)$/;"	m
 <leader>G	keys.vim	/^nnoremap <leader>G :Gdiff<CR>$/;"	m
 <leader>N	plugin_config.vim	/^map <leader>N :NERDTreeFind<CR>$/;"	m
 <leader>S	keys.vim	/^noremap <leader>S :set spell spelllang=en_us <CR>$/;"	m
@@ -80,8 +73,8 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;
 <leader>co	keys.vim	/^nnoremap <leader>co :cw<CR>$/;"	m
 <leader>cp	keys.vim	/^nnoremap <silent> <leader>cp :cprev<CR>$/;"	m
 <leader>d	plugin_config.vim	/^nmap <leader>d :FloatermNew! EDITOR=floaterm bash -c 'lazydocker'; exit<CR>$/;"	m
+<leader>e	plugin_config.vim	/^nmap <leader>e <Plug>(ale_previous_wrap)$/;"	m
 <leader>ev	keys.vim	/^nnoremap <leader>ev :vsp $MYVIMRC<CR>$/;"	m
-<leader>f	plugin_config.vim	/^nmap <leader>f :Prettier<CR>$/;"	m
 <leader>f	plugin_config.vim	/^nmap <silent> <leader>f <Plug>(coc-format-selected)$/;"	m
 <leader>f	plugin_config.vim	/^vmap <leader>f  <Plug>(coc-format-selected)$/;"	m
 <leader>fh	plugin_config.vim	/^nmap <silent> <leader>fh <Plug>(coc-float-hide)$/;"	m
@@ -91,7 +84,9 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;
 <leader>gk	plugin_config.vim	/^nmap <leader>gk <plug>(signify-prev-hunk)$/;"	m
 <leader>gs	plugin_config.vim	/^nmap <leader>gs :Gstatus<CR>$/;"	m
 <leader>gw	plugin_config.vim	/^nmap <leader>gw :Gwrite<CR>$/;"	m
+<leader>ps	plugin_config.vim	/^nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep /;"	m
 <leader>q	keys.vim	/^nnoremap <leader>q :Bwipeout<CR>$/;"	m
+<leader>qf	plugin_config.vim	/^nmap <leader>qf  <Plug>(coc-fix-current)$/;"	m
 <leader>rn	plugin_config.vim	/^nmap <leader>rn <Plug>(coc-rename)"$/;"	m
 <leader>s	keys.vim	/^nnoremap <leader>s :mksession<CR>$/;"	m
 <leader>t	plugin_config.vim	/^nmap <leader>t :call NeoI18nShow() <CR>$/;"	m
@@ -106,255 +101,41 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;
 <space>s	plugin_config.vim	/^nnoremap <silent> <space>s  :CocList -I symbols<cr>$/;"	m
 =	keys.vim	/^noremap = :tabm +1<CR>$/;"	m
 B	plugin_config.vim	/^command! B execute "FZFBuffers"$/;"	c
-Bug fixes	lua/lyaml/NEWS.md	/^### Bug fixes$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.0 (2015-07-27) [stable]
-Bug fixes	lua/lyaml/NEWS.md	/^### Bug fixes$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.1 (2016-10-08) [stable]
-Bug fixes	lua/lyaml/NEWS.md	/^### Bug fixes$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.1.2 (2017-04-30) [stable]
-Bug fixes	lua/lyaml/NEWS.md	/^### Bug fixes$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.1.3 (2017-05-29) [stable]
-Bug fixes	lua/lyaml/NEWS.md	/^### Bug fixes$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.2 (2017-11-26) [stable]
-Bug fixes	lua/lyaml/NEWS.md	/^### Bug fixes$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.2.1 (2018-02-20) [stable]
-Bug fixes	lua/lyaml/NEWS.md	/^### Bug fixes$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.2.2 (2018-03-28) [stable]
-Bug fixes	lua/lyaml/NEWS.md	/^### Bug fixes$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.2.4 (2019-07-20) [stable]
-Bug fixes	lua/lyaml/NEWS.md	/^### Bug fixes$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.2.5 (2020-04-15) [stable]
-Bug fixes	lua/lyaml/NEWS.md	/^### Bug fixes$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.2.6 (2020-08-28) [stable]
-Bug reports and code contributions	lua/lyaml/README.md	/^Bug reports and code contributions$/;"	s	chapter:LYAML
-Bugs Fixed	lua/lyaml/NEWS.md	/^### Bugs Fixed$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 5 (2014-09-25) [beta]
-Bugs Fixed	lua/lyaml/NEWS.md	/^### Bugs Fixed$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 5.1.1 (2014-12-19) [stable]
-Bugs Fixed	lua/lyaml/NEWS.md	/^### Bugs Fixed$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 5.1.2 (2014-12-27) [stable]
-Build	lua/lyaml/NEWS.md	/^### Build$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 5 (2014-09-25) [beta]
 CocCurrentFunction	plugin_config.vim	/^function! CocCurrentFunction()$/;"	f
 Config	plugin_config.vim	/^command! Config execute ":tabe ~\/.config\/nvim\/init.vim"$/;"	c
-CreateCenteredFloatingWindow	plugin_config.vim	/^function! CreateCenteredFloatingWindow()$/;"	f
-DIRNAMEPAT	lua/lyaml/build-aux/luke	/^local DIRNAMEPAT=dirsep..'[^'..dirsep..']*$'return{basename=function(path)return(gsub(path,BASEN/;"	f
-DOCUMENT_END	lua/lyaml/lib/lyaml/init.lua	/^            DOCUMENT_END = function() end,$/;"	f
-Dumper	lua/lyaml/lib/lyaml/init.lua	/^local function Dumper(opts)$/;"	f
-ERROR_IFNIL	lua/lyaml/ext/yaml/lyaml.h	/^#define ERROR_IFNIL(/;"	d
-EVENTF	lua/lyaml/ext/yaml/parser.c	/^#define EVENTF(/;"	d	file:
-EVENTF	lua/lyaml/ext/yaml/scanner.c	/^#define EVENTF(/;"	d	file:
-FZFWithDevIcons	plugin_config.vim	/^function! FZFWithDevIcons()$/;"	f
 FileHistory	plugin_config.vim	/^command! FileHistory execute ":FZFBCommits"$/;"	c
 Filename	plugin_config.vim	/^command! Filename execute ":echo expand('%:p')"$/;"	c
-High Level API	lua/lyaml/README.md	/^### High Level API$/;"	S	section:LYAML""Usage
-Incompatible Changes	lua/lyaml/NEWS.md	/^### Incompatible Changes$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.0 (2015-07-27) [stable]
-Installation	lua/lyaml/README.md	/^Installation$/;"	s	chapter:LYAML
-J	lsp_config.vim	/^nnoremap <silent> J     <cmd>lua vim.lsp.util.show_line_diagnostics()<cr>$/;"	m
 K	lsp_config.vim	/^nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<cr>$/;"	m
-Known Issues	lua/lyaml/NEWS.md	/^### Known Issues$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 1 (2013-03-17) [beta]
-L	lua/lyaml/ext/yaml/parser.c	/^   lua_State	 *L;$/;"	m	struct:__anonfbb607640108	typeref:typename:lua_State *	file:
-L	lua/lyaml/ext/yaml/scanner.c	/^   lua_State	 *L;$/;"	m	struct:__anon80c4f3210108	typeref:typename:lua_State *	file:
-L.luke	lua/lyaml/build-aux/luke	/^L.luke=run_configs(L,conf,L.luke)local substitute=makeenv(L.clidefs,L.luke.substitute,SHELLENV)L/;"	f
-LYAML	lua/lyaml/README.md	/^LYAML$/;"	c
-LYAML_H	lua/lyaml/ext/yaml/lyaml.h	/^#define LYAML_H /;"	d
-LYAML_STR_1	lua/lyaml/ext/yaml/yaml.c	/^#define LYAML_STR_1(/;"	d	file:
-LYAML__STR_1	lua/lyaml/ext/yaml/yaml.c	/^#define LYAML__STR_1(/;"	d	file:
-Low Level APIs	lua/lyaml/README.md	/^### Low Level APIs$/;"	S	section:LYAML""Usage
-MAPPING_END	lua/lyaml/lib/lyaml/init.lua	/^            MAPPING_END = function() end,$/;"	f
-MENTRY	lua/lyaml/ext/yaml/emitter.c	/^#define MENTRY(/;"	d	file:
-MENTRY	lua/lyaml/ext/yaml/parser.c	/^#define MENTRY(/;"	d	file:
-MENTRY	lua/lyaml/ext/yaml/scanner.c	/^#define MENTRY(/;"	d	file:
-MENTRY	lua/lyaml/ext/yaml/yaml.c	/^#define MENTRY(/;"	d	file:
-MYNAME	lua/lyaml/ext/yaml/yaml.c	/^#define MYNAME	/;"	d	file:
-MYVERSION	lua/lyaml/ext/yaml/yaml.c	/^#define MYVERSION	/;"	d	file:
 N	keys.vim	/^nnoremap N Nzz$/;"	m
 NERDTreeShowHidden	plugin_config.vim	/^let NERDTreeShowHidden=1$/;"	v
-NULL	lua/lyaml/lib/lyaml/explicit.lua	/^local NULL = functional.NULL$/;"	f
-NULL	lua/lyaml/lib/lyaml/implicit.lua	/^local NULL = require 'lyaml.functional'.NULL$/;"	f
-NULL	lua/lyaml/lib/lyaml/init.lua	/^local NULL = functional.NULL$/;"	f
-New Features	lua/lyaml/NEWS.md	/^### New Features$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 1 (2013-03-17) [beta]
-New Features	lua/lyaml/NEWS.md	/^### New Features$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 3 (2013-04-27) [beta]
-New Features	lua/lyaml/NEWS.md	/^### New Features$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 4 (2013-09-11) [beta]
-New Features	lua/lyaml/NEWS.md	/^### New Features$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 5 (2014-09-25) [beta]
-New Features	lua/lyaml/NEWS.md	/^### New Features$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 5.1.0 (2014-12-17) [stable]
-New Features	lua/lyaml/NEWS.md	/^### New Features$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.0 (2015-07-27) [stable]
-New Features	lua/lyaml/NEWS.md	/^### New Features$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.1.1 (2017-01-22) [stable]
-New Features	lua/lyaml/NEWS.md	/^### New Features$/;"	S	section:lyaml NEWS - User visible changes""Noteworthy changes in release 6.2.3 (2018-09-16) [stable]
-Nil Values	lua/lyaml/README.md	/^#### Nil Values$/;"	t	subsection:LYAML""Usage""High Level API
-Noteworthy changes in release 1 (2013-03-17) [beta]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 1 (2013-03-17) [beta]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 2 (2013-03-18) [beta]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 2 (2013-03-18) [beta]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 3 (2013-04-27) [beta]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 3 (2013-04-27) [beta]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 4 (2013-09-11) [beta]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 4 (2013-09-11) [beta]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 5 (2014-09-25) [beta]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 5 (2014-09-25) [beta]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 5.1.0 (2014-12-17) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 5.1.0 (2014-12-17) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 5.1.1 (2014-12-19) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 5.1.1 (2014-12-19) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 5.1.2 (2014-12-27) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 5.1.2 (2014-12-27) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 5.1.3 (2015-01-01) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 5.1.3 (2015-01-01) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 5.1.4 (2015-01-01) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 5.1.4 (2015-01-01) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.0 (2015-07-27) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.0 (2015-07-27) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.1 (2016-10-08) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.1 (2016-10-08) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.1.1 (2017-01-22) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.1.1 (2017-01-22) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.1.2 (2017-04-30) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.1.2 (2017-04-30) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.1.3 (2017-05-29) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.1.3 (2017-05-29) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.2 (2017-11-26) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.2 (2017-11-26) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.2.1 (2018-02-20) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.2.1 (2018-02-20) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.2.2 (2018-03-28) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.2.2 (2018-03-28) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.2.3 (2018-09-16) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.2.3 (2018-09-16) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.2.4 (2019-07-20) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.2.4 (2019-07-20) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.2.5 (2020-04-15) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.2.5 (2020-04-15) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release 6.2.6 (2020-08-28) [stable]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release 6.2.6 (2020-08-28) [stable]$/;"	s	chapter:lyaml NEWS - User visible changes
-Noteworthy changes in release ?.? (????-??-??) [?]	lua/lyaml/NEWS.md	/^## Noteworthy changes in release ?.? (????-??-??) [?]$/;"	s	chapter:lyaml NEWS - User visible changes
-Parser	lua/lyaml/lib/lyaml/init.lua	/^local function Parser(s, opts)$/;"	f
-Pemitter	lua/lyaml/ext/yaml/emitter.c	/^Pemitter (lua_State *L)$/;"	f	typeref:typename:int
-Pparser	lua/lyaml/ext/yaml/parser.c	/^Pparser (lua_State *L)$/;"	f	typeref:typename:int
-Pscanner	lua/lyaml/ext/yaml/scanner.c	/^Pscanner (lua_State *L)$/;"	f	typeref:typename:int
-R	lua/lyaml/ext/yaml/yaml.c	/^static const luaL_Reg R[] =$/;"	v	typeref:typename:const luaL_Reg[]	file:
-RAWGETS_INTEGER	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWGETS_INTEGER(/;"	d
-RAWGETS_STRDUP	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWGETS_STRDUP(/;"	d
-RAWGET_BOOLEAN	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWGET_BOOLEAN(/;"	d
-RAWGET_INTEGER	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWGET_INTEGER(/;"	d
-RAWGET_PUSHTABLE	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWGET_PUSHTABLE(/;"	d
-RAWGET_STRDUP	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWGET_STRDUP(/;"	d
-RAWGET_STRING	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWGET_STRING(/;"	d
-RAWGET_YAML_CHARP	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWGET_YAML_CHARP(/;"	d
-RAWSET_BOOLEAN	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWSET_BOOLEAN(/;"	d
-RAWSET_EVENTF	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWSET_EVENTF(/;"	d
-RAWSET_INTEGER	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWSET_INTEGER(/;"	d
-RAWSET_STRING	lua/lyaml/ext/yaml/lyaml.h	/^#define RAWSET_STRING(/;"	d
-SEQUENCE_END	lua/lyaml/lib/lyaml/init.lua	/^            SEQUENCE_END = function() end,$/;"	f
-STREQ	lua/lyaml/ext/yaml/lyaml.h	/^#define STREQ /;"	d
-STRNEQ	lua/lyaml/ext/yaml/lyaml.h	/^#define STRNEQ /;"	d
 SourceConfig	plugin_config.vim	/^command! SourceConfig execute ":so ~\/.config\/nvim\/init.vim"$/;"	c
 ToggleNERDTree	plugin_config.vim	/^function! ToggleNERDTree()$/;"	f
 U	plugin_config.vim	/^nnoremap <silent> U :call <SID>show_documentation()<CR>$/;"	m
-Usage	lua/lyaml/README.md	/^Usage$/;"	s	chapter:LYAML
-[b	plugin_config.vim	/^nmap <silent> [b <Plug>(ale_previous_wrap)$/;"	m
 [c	plugin_config.vim	/^nmap <silent> [c <Plug>(coc-diagnostic-prev)$/;"	m
-]b	plugin_config.vim	/^nmap <silent> ]b <Plug>(ale_next_wrap)$/;"	m
 ]c	plugin_config.vim	/^nmap <silent> ]c <Plug>(coc-diagnostic-next)$/;"	m
-_ENV	lua/lyaml/build-aux/luke	/^local _ENV=require'std.normalize'{'luke._base','luke.compile','luke.environment','std.functional/;"	f
-_ENV	lua/lyaml/build-aux/luke	/^local _ENV=require'std.normalize'{'luke._base','luke.configure','luke.environment','luke.platfor/;"	f
-_ENV	lua/lyaml/build-aux/luke	/^local _ENV=require'std.normalize'{'luke._base','luke.environment','std.functional','type.context/;"	f
-_ENV	lua/lyaml/build-aux/luke	/^local _ENV=require'std.normalize'{'luke._base','luke.lukefile','luke.platforms','std.functional'/;"	f
-_ENV	lua/lyaml/build-aux/luke	/^local _ENV=require'std.normalize'{'luke.cli','luke.compile','luke.configure','luke.environment',/;"	f
-_ENV	lua/lyaml/build-aux/luke	/^local _ENV=require'std.normalize'{'luke.platforms','std.functional',LUAVERSION=string.gsub(_VERS/;"	f
-_ENV	lua/lyaml/build-aux/luke	/^local _ENV=require'std.normalize'{'std.functional',}local CANON={['AIX']=list('aix','unix'),['Fr/;"	f
-_ENV	lua/lyaml/build-aux/luke	/^local _ENV=require'std.normalize'{'std.functional',}local contextmanager_mt={__index=function(se/;"	f
-_ENV	lua/lyaml/build-aux/luke	/^local _ENV=require'std.normalize'{destructure=next,isfile=function(x)return io.type(x)=='file'en/;"	f
-_ENV	lua/lyaml/build-aux/luke	/^local _ENV=require'std.normalize'{destructure=next,}return{OrderedDict=function(...)local r,argu/;"	f
-_ENV	lua/lyaml/build-aux/luke	/^local _ENV=require'std.normalize'{}local function fatal(...)local msg=(...)if select('#',...)>1 /;"	f
-__anon80c4f3210108	lua/lyaml/ext/yaml/scanner.c	/^typedef struct {$/;"	s	file:
-__anond2c682b10108	lua/lyaml/ext/yaml/emitter.c	/^typedef struct {$/;"	s	file:
-__anonfbb607640108	lua/lyaml/ext/yaml/parser.c	/^typedef struct {$/;"	s	file:
-__call	lua/lyaml/spec/spec_helper.lua	/^      __call = function(self, ...)$/;"	f
-`lyaml.dump`	lua/lyaml/README.md	/^#### `lyaml.dump`$/;"	t	subsection:LYAML""Usage""High Level API
-`lyaml.load`	lua/lyaml/README.md	/^#### `lyaml.load`$/;"	t	subsection:LYAML""Usage""High Level API
-add_anchor	lua/lyaml/lib/lyaml/init.lua	/^      add_anchor = function(self, node)$/;"	f
-anyof	lua/lyaml/lib/lyaml/explicit.lua	/^local anyof = functional.anyof$/;"	f
-anyof	lua/lyaml/lib/lyaml/functional.lua	/^local function anyof(fns)$/;"	f
-anyof	lua/lyaml/lib/lyaml/init.lua	/^local anyof = functional.anyof$/;"	f
-append_output	lua/lyaml/ext/yaml/emitter.c	/^append_output (void *arg, unsigned char *buff, size_t len)$/;"	f	typeref:typename:int	file:
 b:ale_fixers	plugin_config.vim	/^let b:ale_fixers = ['prettier', 'eslint']$/;"	v
-b:ale_warn_about_trailing_whitespace	plugin_config.vim	/^let b:ale_warn_about_trailing_whitespace = 1$/;"	v
-binary	lua/lyaml/lib/lyaml/implicit.lua	/^local function binary(value)$/;"	f
-bindirs	lua/lyaml/build-aux/luke	/^local function bindirs(...)return map(flatten(...),function(v)return v..':'end)end$/;"	f
-bool	lua/lyaml/lib/lyaml/implicit.lua	/^local function bool(value)$/;"	f
-c_module_path	lua/lyaml/build-aux/luke	/^local function c_module_path(objdir,name)return format('%s\/%s.$LIB_EXTENSION',objdir,gsub(name,/;"	f
+b:ale_linters	plugin_config.vim	/^let b:ale_linters = ['eslint', 'vls']$/;"	v
 cc	plugin_config.vim	/^nmap cc :FZFCommands<CR>$/;"	m
-check_func_decl	lua/lyaml/build-aux/luke	/^local function check_func_decl(L,env,config,fname,extra_hdrs)return with(CTest(),function(confte/;"	f
-check_func_link	lua/lyaml/build-aux/luke	/^local function check_func_link(L,env,config,fname)return with(CTest(),TmpFile(),function(conftes/;"	f
-check_header_compile	lua/lyaml/build-aux/luke	/^local function check_header_compile(L,env,config,header,extra_hdrs)return with(CTest(),function(/;"	f
-checking	lua/lyaml/build-aux/luke	/^local function checking(L,...)L.verbose('checking ',concat({...},' '),'... ')end$/;"	f
-cm	lua/lyaml/build-aux/luke	/^checking(L,interpolate(env,'whether $CC works'))local cm=CTest()local works,err=with(cm,function/;"	f
 coc.preferences.formatOnSaveFiletypes	coc-settings.json	/^  "coc.preferences.formatOnSaveFiletypes": [$/;"	a
-collect_variables	lua/lyaml/build-aux/luke	/^local function collect_variables(luke,variables)for k,v in next,luke do$/;"	f
-command	coc-settings.json	/^      "command": "gopls",$/;"	s	object:languageserver.golang
-config_cmp	lua/lyaml/build-aux/luke	/^end})local function config_cmp(a,b)return weighting(a)<weighting(b)end$/;"	f
-configure	lua/lyaml/build-aux/luke	/^local configure=setmetatable(OrderedDict({checkprog=function(L,env,config)return dropuntil(confi/;"	f
-consume	lua/lyaml/spec/spec_helper.lua	/^function consume(n, str)$/;"	f
-context_close	lua/lyaml/build-aux/luke	/^local function context_close(cm)return isfile(cm.context)and close(cm.context)end$/;"	f
-decimal	lua/lyaml/lib/lyaml/implicit.lua	/^local function decimal(value)$/;"	f
+diagnostic.displayByAle	coc-settings.json	/^  "diagnostic.displayByAle": true$/;"	b
 diagnostic.enable	coc-settings.json	/^  "diagnostic.enable": true,$/;"	b
 diagnostic.errorSign	coc-settings.json	/^  "diagnostic.errorSign": "❌",$/;"	s
 diagnostic.hintSign	coc-settings.json	/^  "diagnostic.hintSign": "⚠️",$/;"	s
 diagnostic.infoSign	coc-settings.json	/^  "diagnostic.infoSign": "⚠️",$/;"	s
 diagnostic.warningSign	coc-settings.json	/^  "diagnostic.warningSign": "⚠️",$/;"	s
-dirsep,pathsep,pathmark,execdir,igmark	lua/lyaml/build-aux/luke	/^local dirsep,pathsep,pathmark,execdir,igmark=match(config,'^([^\\n]+)\\n([^\\n]+)\\n([^\\n]+)\\n/;"	f
-display	lua/lyaml/build-aux/luke	/^local function display(...)return stdout:write(concat{...})end$/;"	f
-document_count	lua/lyaml/ext/yaml/parser.c	/^   int		  document_count;$/;"	m	struct:__anonfbb607640108	typeref:typename:int	file:
-document_count	lua/lyaml/ext/yaml/scanner.c	/^   int		  document_count;$/;"	m	struct:__anon80c4f3210108	typeref:typename:int	file:
-dump	lua/lyaml/lib/lyaml/init.lua	/^local function dump(documents, opts)$/;"	f
-dump	lua/lyaml/spec/spec_helper.lua	/^function dump(e)$/;"	f
-dump_alias	lua/lyaml/lib/lyaml/init.lua	/^      dump_alias = function(self, alias)$/;"	f
-dump_document	lua/lyaml/lib/lyaml/init.lua	/^      dump_document = function(self, document)$/;"	f
-dump_mapping	lua/lyaml/lib/lyaml/init.lua	/^      dump_mapping = function(self, map)$/;"	f
-dump_node	lua/lyaml/lib/lyaml/init.lua	/^      dump_node = function(self, node)$/;"	f
-dump_null	lua/lyaml/lib/lyaml/init.lua	/^      dump_null = function(self)$/;"	f
-dump_scalar	lua/lyaml/lib/lyaml/init.lua	/^      dump_scalar = function(self, value)$/;"	f
-dump_sequence	lua/lyaml/lib/lyaml/init.lua	/^      dump_sequence = function(self, sequence)$/;"	f
-emit	lua/lyaml/ext/yaml/emitter.c	/^emit (lua_State *L)$/;"	f	typeref:typename:int	file:
-emit	lua/lyaml/lib/lyaml/init.lua	/^      emit = function(self, event)$/;"	f
-emit	lua/lyaml/spec/spec_helper.lua	/^function emit(list)$/;"	f
-emit_ALIAS	lua/lyaml/ext/yaml/emitter.c	/^emit_ALIAS (lua_State *L, lyaml_emitter *emitter)$/;"	f	typeref:typename:int	file:
-emit_DOCUMENT_END	lua/lyaml/ext/yaml/emitter.c	/^emit_DOCUMENT_END (lua_State *L, lyaml_emitter *emitter)$/;"	f	typeref:typename:int	file:
-emit_DOCUMENT_START	lua/lyaml/ext/yaml/emitter.c	/^emit_DOCUMENT_START (lua_State *L, lyaml_emitter *emitter)$/;"	f	typeref:typename:int	file:
-emit_MAPPING_END	lua/lyaml/ext/yaml/emitter.c	/^emit_MAPPING_END (lua_State *L, lyaml_emitter *emitter)$/;"	f	typeref:typename:int	file:
-emit_MAPPING_START	lua/lyaml/ext/yaml/emitter.c	/^emit_MAPPING_START (lua_State *L, lyaml_emitter *emitter)$/;"	f	typeref:typename:int	file:
-emit_SCALAR	lua/lyaml/ext/yaml/emitter.c	/^emit_SCALAR (lua_State *L, lyaml_emitter *emitter)$/;"	f	typeref:typename:int	file:
-emit_SEQUENCE_END	lua/lyaml/ext/yaml/emitter.c	/^emit_SEQUENCE_END (lua_State *L, lyaml_emitter *emitter)$/;"	f	typeref:typename:int	file:
-emit_SEQUENCE_START	lua/lyaml/ext/yaml/emitter.c	/^emit_SEQUENCE_START (lua_State *L, lyaml_emitter *emitter)$/;"	f	typeref:typename:int	file:
-emit_STREAM_END	lua/lyaml/ext/yaml/emitter.c	/^emit_STREAM_END (lua_State *L, lyaml_emitter *emitter)$/;"	f	typeref:typename:int	file:
-emit_STREAM_START	lua/lyaml/ext/yaml/emitter.c	/^emit_STREAM_START (lua_State *L, lyaml_emitter *emitter)$/;"	f	typeref:typename:int	file:
-emitevents	lua/lyaml/spec/spec_helper.lua	/^function emitevents(emitter, list)$/;"	f
-emitter	lua/lyaml/ext/yaml/emitter.c	/^   yaml_emitter_t   emitter;$/;"	m	struct:__anond2c682b10108	typeref:typename:yaml_emitter_t	file:
-emitter_gc	lua/lyaml/ext/yaml/emitter.c	/^emitter_gc (lua_State *L)$/;"	f	typeref:typename:int	file:
-end,File	lua/lyaml/build-aux/luke	/^end,open,conftest..'.c','w')end,File=function(fname,mode)return ContextManager(context_close,ope/;"	f
-end,['%-%-file	lua/lyaml/build-aux/luke	/^end,['%-%-file=(.+)']=function(optarg)r.fname=optarg$/;"	f
-end,['%-%-value	lua/lyaml/build-aux/luke	/^end,['%-%-value=(.+)']=function(optarg)r.valreqs[#r.valreqs+1]=optarg$/;"	f
-end,['--help']	lua/lyaml/build-aux/luke	/^end,['--help']=help,['--version']=version,['([^-][^=]-)=(.+)']=function(name,value)r.clidefs[nam/;"	f
-end,['--quiet']	lua/lyaml/build-aux/luke	/^end,['--quiet']=function()r.write=nop$/;"	f
-end,['--verbose']	lua/lyaml/build-aux/luke	/^end,['--verbose']=function()r.verbose=display$/;"	f
-end,['table']	lua/lyaml/build-aux/luke	/^end,['table']=function()return dropuntil(self,function(fname)if config[fname]~=nil then$/;"	f
-end,apply	lua/lyaml/build-aux/luke	/^end,apply=apply,bind=function(fn,bound)local n=bound.n or maxn(bound)return function(...)local a/;"	f
-end,arg	lua/lyaml/build-aux/luke	/^end,arg=arg,assert=assert,char=string.char,close=io.close,concat=concat,copy=copy,dirsep=dirsep,/;"	f
-end,c_modules	lua/lyaml/build-aux/luke	/^return run(L,env,flatten('$CC $CFLAGS $LIBFLAG $PKGFLAGS $CPPFLAGS',defines(env,except(list(rule/;"	f
-end,call	lua/lyaml/build-aux/luke	/^end,call=call,case=function(s,branches)if branches[s]~=nil then$/;"	f
-end,collect_variables	lua/lyaml/build-aux/luke	/^end,collect_variables=function(luke)return collect_variables(luke,{})end,run_configs=function(L,/;"	f
-end,cond	lua/lyaml/build-aux/luke	/^end,cond=function(...)for clauseu in each(list(...))do$/;"	f
-end,config_ldoc	lua/lyaml/build-aux/luke	/^end,config_ldoc=function(L,env)local LDOC=env.LDOC$/;"	f
-end,contains	lua/lyaml/build-aux/luke	/^end,contains=function(seq,predicate)if type(predicate)~='function'then$/;"	f
-end,destructure	lua/lyaml/build-aux/luke	/^end,destructure=destructure,dropuntil=function(seq,predicate,block)if block==nil then$/;"	f
-end,except	lua/lyaml/build-aux/luke	/^end,except=except,filter=function(seq,predicate)predicate=mkpredicate(predicate)local r={}for va/;"	f
-end,flatten	lua/lyaml/build-aux/luke	/^end,flatten=flatten,foldkeys=function(keymap,dict,combinator)local r={}for k,v in next,dict or{}/;"	f
-end,get	lua/lyaml/build-aux/luke	/^end,get=function(dict,key)return(dict or{})[key]end,hoist=function(keylist,dict)local r={}for ke/;"	f
-end,id	lua/lyaml/build-aux/luke	/^end,id=function(...)return...end,isempty=function(x)return type(x)=='table'and not next(x)end,is/;"	f
-end,isstring	lua/lyaml/build-aux/luke	/^end,isstring=function(x)return type(x)=='string'end,istable=function(x)return type(x)=='table'en/;"	f
-end,keys	lua/lyaml/build-aux/luke	/^end,keys=function(iterable)local r=list()for k in next,iterable or{}do$/;"	f
-end,map	lua/lyaml/build-aux/luke	/^end,map=function(seq,block)local r=list()for valu in each(seq)do$/;"	f
-end,mapvalues	lua/lyaml/build-aux/luke	/^end,mapvalues=function(iterable,block)local r={}for k,v in next,iterable or{}do$/;"	f
-end,merge	lua/lyaml/build-aux/luke	/^end,merge=function(r,...)local argu=pack(...)for i=1,argu.n do$/;"	f
-end,next	lua/lyaml/build-aux/luke	/^end,next=next,open=io.open,pack=pack,pcall=pcall,pop=function(seq)local n,r=seq.n or len(seq)r,s/;"	f
-end,nop	lua/lyaml/build-aux/luke	/^end,nop=function()end,partition=function(seq,block)local r,s=list(),list()for valu in each(seq)d/;"	f
-end,pluck	lua/lyaml/build-aux/luke	/^end,pluck=function(keylist,dict)local r={}for keyu in each(keylist)do$/;"	f
-end,popen	lua/lyaml/build-aux/luke	/^end,popen=io.popen,print=print,rawget=rawget,rawset=rawset,rep=string.rep,rm=os.remove,select=se/;"	f
-end,reduce	lua/lyaml/build-aux/luke	/^end,reduce=function(seq,acc,block)if block==nil then$/;"	f
-end,slurp	lua/lyaml/build-aux/luke	/^end,open,fname or tmpname(),mode or'w')end,slurp=function(cm,...)if not cm then$/;"	f
-end,validate_arguments	lua/lyaml/build-aux/luke	/^end,validate_arguments=function(parsed)local luke,err=loadluke(parsed.fname)diagnose(luke~=nil,'/;"	f
-end,values	lua/lyaml/build-aux/luke	/^end,values=function(iterable)local r=list()for _,v in next,iterable or{}do$/;"	f
-end,zip_with	lua/lyaml/build-aux/luke	/^end,zip_with=function(iterable,block)local r=list()for k,v in next,iterable or{}do$/;"	f
-end},{checkheader	lua/lyaml/build-aux/luke	/^end)or fatal('cannot find '..config.checkprog)end},{checkheader=function(L,env,config)checking(L/;"	f
-errL	lua/lyaml/ext/yaml/emitter.c	/^   lua_State	   *errL;$/;"	m	struct:__anond2c682b10108	typeref:typename:lua_State *	file:
-errbuff	lua/lyaml/ext/yaml/emitter.c	/^   luaL_Buffer	    errbuff;$/;"	m	struct:__anond2c682b10108	typeref:typename:luaL_Buffer	file:
-error	lua/lyaml/ext/yaml/emitter.c	/^   int		    error;$/;"	m	struct:__anond2c682b10108	typeref:typename:int	file:
-error	lua/lyaml/lib/lyaml/init.lua	/^      error = function(self, errmsg, ...)$/;"	f
-event	lua/lyaml/ext/yaml/parser.c	/^   yaml_event_t	  event;$/;"	m	struct:__anonfbb607640108	typeref:typename:yaml_event_t	file:
-event_iter	lua/lyaml/ext/yaml/parser.c	/^event_iter (lua_State *L)$/;"	f	typeref:typename:int	file:
-filetypes	coc-settings.json	/^      "filetypes": ["go"]$/;"	a	object:languageserver.golang
-fill_templates	lua/lyaml/build-aux/luke	/^local function fill_templates(env,src,dest)with(File(dest,'w'),function(cm)for line in lines(src/;"	f
-filter	lua/lyaml/spec/spec_helper.lua	/^function filter(t, ...)$/;"	f
-float	lua/lyaml/lib/lyaml/implicit.lua	/^local function float(value)$/;"	f
-format_expect	lua/lyaml/spec/spec_helper.lua	/^      format_expect = function(self, expect)$/;"	f
-format_includes	lua/lyaml/build-aux/luke	/^local function format_includes(includes)return map(includes or{},function(include)return format(/;"	f
-found_prog	lua/lyaml/build-aux/luke	/^local function found_prog(L,x)L.verbose(x and'yes\\n'or'no\\n')return x$/;"	f
+document_format_and_organise_sync	lua/lsp_config.lua	/^function document_format_and_organise_sync()$/;"	f
+document_format_sync	lua/lsp_config.lua	/^function document_format_sync()$/;"	f
+eslint.filetypes	coc-settings.json	/^  "eslint.filetypes": ["typescript"],$/;"	a
 g0	lsp_config.vim	/^nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<cr>$/;"	m
 g:SuperTabClosePreviewOnPopupClose	plugin_config.vim	/^let g:SuperTabClosePreviewOnPopupClose = 1$/;"	v
 g:SuperTabDefaultCompletionType	plugin_config.vim	/^let g:SuperTabDefaultCompletionType = "<c-n>"$/;"	v
 g:SuperTabDefaultCompletionType	plugin_config.vim	/^let g:SuperTabDefaultCompletionType = '<c-n>'$/;"	v
 g:airline_powerline_fonts	general.vim	/^let g:airline_powerline_fonts = 1$/;"	v
+g:ale_disable_lsp	plugin_list.vim	/^let g:ale_disable_lsp = 1$/;"	v
 g:ale_fix_on_save	plugin_config.vim	/^let g:ale_fix_on_save = 1 " Fix files automatically on save$/;"	v
-g:ale_linters_explicit	plugin_config.vim	/^let g:ale_linters_explicit = 1$/;"	v
-g:ale_open_list	plugin_config.vim	/^let g:ale_open_list = 1$/;"	v
-g:ale_set_balloons	plugin_config.vim	/^let g:ale_set_balloons = 1$/;"	v
 g:ale_sign_error	plugin_config.vim	/^let g:ale_sign_error = '❌'$/;"	v
 g:ale_sign_warning	plugin_config.vim	/^let g:ale_sign_warning = '⚠️'$/;"	v
-g:coc_global_extensions	plugin_config.vim	/^let g:coc_global_extensions = ['coc-vetur']$/;"	v
+g:coc_global_extensions	plugin_config.vim	/^let g:coc_global_extensions = ['coc-vetur', 'coc-tsserver', 'coc-pairs', 'coc-eslint', 'coc-snip/;"	v
 g:coc_snippet_next	plugin_config.vim	/^let g:coc_snippet_next = '<tab>'$/;"	v
 g:conoline_auto_enable	plugin_config.vim	/^let g:conoline_auto_enable = 1$/;"	v
 g:conoline_use_colorscheme_default_insert	plugin_config.vim	/^let g:conoline_use_colorscheme_default_insert=1$/;"	v
@@ -370,23 +151,6 @@ g:floaterm_keymap_toggle	plugin_config.vim	/^let g:floaterm_keymap_toggle = "<F1
 g:floaterm_position	plugin_config.vim	/^let g:floaterm_position = "bottom"$/;"	v
 g:floaterm_width	plugin_config.vim	/^let g:floaterm_width=0.95$/;"	v
 g:fzf_command_prefix	plugin_config.vim	/^let g:fzf_command_prefix = 'FZF'$/;"	v
-g:go_addtags_transform	plugin_config.vim	/^let g:go_addtags_transform = "snakecase"$/;"	v
-g:go_auto_type_info	plugin_config.vim	/^let g:go_auto_type_info = 1$/;"	v
-g:go_code_completion_enabled	plugin_config.vim	/^let g:go_code_completion_enabled = 0$/;"	v
-g:go_def_mapping_enabled	plugin_config.vim	/^let g:go_def_mapping_enabled=0$/;"	v
-g:go_doc_url	plugin_config.vim	/^let g:go_doc_url = 'http:\/\/localhost:6060'$/;"	v
-g:go_fmt_command	plugin_config.vim	/^let g:go_fmt_command = "goimports"$/;"	v
-g:go_fmt_fail_silently	plugin_config.vim	/^let g:go_fmt_fail_silently = 1$/;"	v
-g:go_highlight_build_constraints	plugin_config.vim	/^let g:go_highlight_build_constraints = 1$/;"	v
-g:go_highlight_extra_types	plugin_config.vim	/^let g:go_highlight_extra_types = 1$/;"	v
-g:go_highlight_fields	plugin_config.vim	/^let g:go_highlight_fields = 1$/;"	v
-g:go_highlight_functions	plugin_config.vim	/^let g:go_highlight_functions = 1$/;"	v
-g:go_highlight_methods	plugin_config.vim	/^let g:go_highlight_methods = 1$/;"	v
-g:go_highlight_operators	plugin_config.vim	/^let g:go_highlight_operators = 1$/;"	v
-g:go_highlight_structs	plugin_config.vim	/^let g:go_highlight_structs = 1$/;"	v
-g:go_highlight_types	plugin_config.vim	/^let g:go_highlight_types = 1$/;"	v
-g:go_play_browser_command	plugin_config.vim	/^let g:go_play_browser_command = 'firefox %URL% &'$/;"	v
-g:go_template_autocreate	plugin_config.vim	/^let g:go_template_autocreate = 0$/;"	v
 g:gruvbox_italic	plugin_config.vim	/^let g:gruvbox_italic = 1$/;"	v
 g:gutentags_file_list_command	plugin_config.vim	/^let g:gutentags_file_list_command = "rg --files --follow --ignore-file '\/home\/ayo\/.vimignore'/;"	v
 g:jsx_ext_required	general.vim	/^let g:jsx_ext_required = 0$/;"	v
@@ -395,14 +159,13 @@ g:markdown_fenced_languages	plugin_config.vim	/^let g:markdown_fenced_languages 
 g:molokai_original	plugin_config.vim	/^let g:molokai_original = 1$/;"	v
 g:netrw_liststyle	general.vim	/^let g:netrw_liststyle = 3$/;"	v
 g:pencil#textwidth	plugin_config.vim	/^let g:pencil#textwidth = 80$/;"	v
-g:prettier#autoformat	plugin_config.vim	/^let g:prettier#autoformat = 1$/;"	v
 g:prettier#config#arrow_parens	plugin_config.vim	/^let g:prettier#config#arrow_parens = 'avoid'$/;"	v
 g:prettier#config#bracket_spacing	plugin_config.vim	/^let g:prettier#config#bracket_spacing = 'true'$/;"	v
 g:prettier#config#jsx_bracket_same_line	plugin_config.vim	/^let g:prettier#config#jsx_bracket_same_line = 'false'$/;"	v
 g:prettier#config#print_width	plugin_config.vim	/^let g:prettier#config#print_width = '100'$/;"	v
 g:prettier#config#single_quote	plugin_config.vim	/^let g:prettier#config#single_quote = 'true'$/;"	v
-g:prettier#config#trailing_comma	plugin_config.vim	/^let g:prettier#config#trailing_comma = 'es5'$/;"	v
-g:python3_host_prog	general.vim	/^let g:python3_host_prog = "\/usr\/bin\/python3"$/;"	v
+g:prettier#config#trailing_comma	plugin_config.vim	/^let g:prettier#config#trailing_comma = 'all'$/;"	v
+g:python3_host_prog	general.vim	/^let g:python3_host_prog = '\/usr\/local\/bin\/python3'$/;"	v
 g:rainbow_active	general.vim	/^ let g:rainbow_active = 1$/;"	v
 g:signify_vcs_list	plugin_config.vim	/^let g:signify_vcs_list = [ 'git' ]$/;"	v
 g:tabulousLabelNameTruncate	plugin_config.vim	/^let g:tabulousLabelNameTruncate = 0$/;"	v
@@ -414,167 +177,33 @@ gD	lsp_config.vim	/^nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation(
 gW	lsp_config.vim	/^nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<cr>$/;"	m
 ga	lsp_config.vim	/^nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<cr>$/;"	m
 ga	lsp_config.vim	/^vnoremap <silent> ga    <cmd>'<,'>lua vim.lsp.buf.range_code_action()<cr>$/;"	m
-gd	lsp_config.vim	/^nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<cr>$/;"	m
 gd	plugin_config.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m
+gd	plugin_config.vim	/^nnoremap <silent> gd :ALEGoToDefinition<cr>$/;"	m
 gdh	keys.vim	/^nnoremap gdh :diffget \/\/2<CR>$/;"	m
 gdl	keys.vim	/^nnoremap gdl :diffget \/\/3<CR>$/;"	m
-get_alias	lua/lyaml/lib/lyaml/init.lua	/^      get_alias = function(self, value)$/;"	f
-get_anchor	lua/lyaml/lib/lyaml/init.lua	/^      get_anchor = function(self, value)$/;"	f
-getmetamethod	lua/lyaml/build-aux/luke	/^local function getmetamethod(x,n)return iscallable((getmetatable(x)or{})[tostring(n)])end$/;"	f
 gi	plugin_config.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
-github_issue	lua/lyaml/spec/spec_helper.lua	/^function github_issue(n)$/;"	f
 gn	lsp_config.vim	/^nnoremap <silent> gn    <cmd>lua vim.lsp.buf.rename()<cr>$/;"	m
-golang	coc-settings.json	/^    "golang": {$/;"	o	object:languageserver
 gr	lsp_config.vim	/^nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<cr>$/;"	m
 gr	plugin_config.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m
 gy	plugin_config.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m
-help	lua/lyaml/build-aux/luke	/^local function help()print[[$/;"	f
-hexadecimal	lua/lyaml/lib/lyaml/implicit.lua	/^local function hexadecimal(value)$/;"	f
-i,n	lua/lyaml/build-aux/luke	/^local i,n=0,int(seq.n)or len(seq)return function()if i<n then$/;"	f
 ic	plugin_config.vim	/^omap ic <plug>(signify-motion-inner-pending)$/;"	m
 ic	plugin_config.vim	/^xmap ic <plug>(signify-motion-inner-visual)$/;"	m
-id	lua/lyaml/lib/lyaml/explicit.lua	/^local id = functional.id$/;"	f
-id	lua/lyaml/lib/lyaml/functional.lua	/^local function id(...)$/;"	f
-id	lua/lyaml/lib/lyaml/init.lua	/^local id = functional.id$/;"	f
-incdirs	lua/lyaml/build-aux/luke	/^local function incdirs(...)return map(flatten(...),function(v)return'-I'..v$/;"	f
-inf	lua/lyaml/lib/lyaml/implicit.lua	/^local function inf(value)$/;"	f
-int	lua/lyaml/build-aux/luke	/^local int=(function(f)if f==nil then$/;"	f
-int	lua/lyaml/lib/lyaml/implicit.lua	/^local function int(x)$/;"	f
-interpolate_to_substitute	lua/lyaml/build-aux/luke	/^local function interpolate_to_substitute(s)return(gsub(s,'%$([%w_]+)','@%1@'))end$/;"	f
-iscallable	lua/lyaml/lib/lyaml/functional.lua	/^local function iscallable(x)$/;"	f
-iscallable	lua/lyaml/spec/spec_helper.lua	/^function iscallable(x)$/;"	f
-isconfig	lua/lyaml/build-aux/luke	/^local function isconfig(x)return istable(x)and has_anykey(x,configure)end$/;"	f
-isnull	lua/lyaml/lib/lyaml/functional.lua	/^local function isnull(x)$/;"	f
-isnull	lua/lyaml/lib/lyaml/init.lua	/^local isnull = functional.isnull$/;"	f
 jj	keys.vim	/^inoremap jj <esc>$/;"	m
-keysort	lua/lyaml/build-aux/luke	/^local function keysort(a,b)if int(a)then$/;"	f
-languageserver	coc-settings.json	/^  "languageserver": {$/;"	o
-libdirs	lua/lyaml/build-aux/luke	/^local function libdirs(...)return map(flatten(...),function(v)return'-L'..v$/;"	f
-load	lua/lyaml/lib/lyaml/init.lua	/^local function load(s, opts)$/;"	f
-load_alias	lua/lyaml/lib/lyaml/init.lua	/^      load_alias = function(self)$/;"	f
-load_map	lua/lyaml/lib/lyaml/init.lua	/^      load_map = function(self)$/;"	f
-load_node	lua/lyaml/lib/lyaml/init.lua	/^      load_node = function(self)$/;"	f
-load_scalar	lua/lyaml/lib/lyaml/init.lua	/^      load_scalar = function(self)$/;"	f
-load_sequence	lua/lyaml/lib/lyaml/init.lua	/^      load_sequence = function(self)$/;"	f
-loadstring	lua/lyaml/build-aux/luke	/^loadstring=function(s,filename,env)chunk,err=_loadstring(s,filename)if chunk~=nil and env~=nil t/;"	f
-loadstring	lua/lyaml/build-aux/luke	/^loadstring=function(s,filename,env)return load(s,filename,"t",env)end$/;"	f
-luaL_openlib	lua/lyaml/ext/yaml/lyaml.h	/^#  define luaL_openlib(/;"	d
-luaL_register	lua/lyaml/ext/yaml/lyaml.h	/^#  define luaL_register(/;"	d
-lua_objlen	lua/lyaml/ext/yaml/lyaml.h	/^#  define lua_objlen /;"	d
-lua_pushyamlstr	lua/lyaml/ext/yaml/lyaml.h	/^#define lua_pushyamlstr(/;"	d
-lua_strlen	lua/lyaml/ext/yaml/lyaml.h	/^#  define lua_strlen /;"	d
-luaopen_yaml	lua/lyaml/ext/yaml/yaml.c	/^luaopen_yaml (lua_State *L)$/;"	f	typeref:typename:LUALIB_API int
-luaproc	lua/lyaml/spec/spec_helper.lua	/^function luaproc(code, arg, stdin)$/;"	f
-lyaml NEWS - User visible changes	lua/lyaml/NEWS.md	/^# lyaml NEWS - User visible changes$/;"	c
-lyaml_emitter	lua/lyaml/ext/yaml/emitter.c	/^} lyaml_emitter;$/;"	t	typeref:struct:__anond2c682b10108	file:
-lyaml_parser	lua/lyaml/ext/yaml/parser.c	/^} lyaml_parser;$/;"	t	typeref:struct:__anonfbb607640108	file:
-lyaml_scanner	lua/lyaml/ext/yaml/scanner.c	/^} lyaml_scanner;$/;"	t	typeref:struct:__anon80c4f3210108	file:
 main	templates/skeleton.rs	/^fn main() {$/;"	f
 mapleader	keys.vim	/^let mapleader = ","$/;"	v
-match_uname	lua/lyaml/build-aux/luke	/^end)end)local function match_uname(canon,uname,x)return match(uname,x)and canon[x]end$/;"	f
-maybefloat	lua/lyaml/lib/lyaml/explicit.lua	/^local function maybefloat(fn)$/;"	f
-mkscript	lua/lyaml/spec/spec_helper.lua	/^local function mkscript(code)$/;"	f
 n	keys.vim	/^nnoremap n nzz$/;"	m
-nan	lua/lyaml/lib/lyaml/implicit.lua	/^local function nan(value)$/;"	f
-null	lua/lyaml/lib/lyaml/explicit.lua	/^local function null()$/;"	f
-null	lua/lyaml/lib/lyaml/implicit.lua	/^local function null(value)$/;"	f
-octal	lua/lyaml/lib/lyaml/implicit.lua	/^local function octal(value)$/;"	f
-outputL	lua/lyaml/ext/yaml/emitter.c	/^   lua_State	   *outputL;$/;"	m	struct:__anond2c682b10108	typeref:typename:lua_State *	file:
-pack	lua/lyaml/build-aux/luke	/^local pack=table.pack or function(...)return{n=select('#',...),...}end$/;"	f
-pack	lua/lyaml/spec/spec_helper.lua	/^pack = table.pack or function(...) return {n = select('#', ...), ...} end$/;"	f
-package.preload['luke']	lua/lyaml/build-aux/luke	/^package.preload['luke']=function()$/;"	f
-package.preload['luke._base']	lua/lyaml/build-aux/luke	/^package.preload['luke._base']=function()$/;"	f
-package.preload['luke.cli']	lua/lyaml/build-aux/luke	/^package.preload['luke.cli']=function()$/;"	f
-package.preload['luke.compile']	lua/lyaml/build-aux/luke	/^package.preload['luke.compile']=function()$/;"	f
-package.preload['luke.configure']	lua/lyaml/build-aux/luke	/^package.preload['luke.configure']=function()$/;"	f
-package.preload['luke.environment']	lua/lyaml/build-aux/luke	/^package.preload['luke.environment']=function()$/;"	f
-package.preload['luke.lukefile']	lua/lyaml/build-aux/luke	/^package.preload['luke.lukefile']=function()$/;"	f
-package.preload['luke.platforms']	lua/lyaml/build-aux/luke	/^package.preload['luke.platforms']=function()$/;"	f
-package.preload['std.normalize']	lua/lyaml/build-aux/luke	/^package.preload['std.normalize']=function()$/;"	f
-package.preload['type.context-manager']	lua/lyaml/build-aux/luke	/^package.preload['type.context-manager']=function()$/;"	f
-package.preload['type.dict']	lua/lyaml/build-aux/luke	/^package.preload['type.dict']=function()$/;"	f
-package.preload['type.path']	lua/lyaml/build-aux/luke	/^package.preload['type.path']=function()$/;"	f
-parse	lua/lyaml/lib/lyaml/init.lua	/^      parse = function(self)$/;"	f
-parse_ALIAS	lua/lyaml/ext/yaml/parser.c	/^parse_ALIAS (lyaml_parser *parser)$/;"	f	typeref:typename:void	file:
-parse_DOCUMENT_END	lua/lyaml/ext/yaml/parser.c	/^parse_DOCUMENT_END (lyaml_parser *parser)$/;"	f	typeref:typename:void	file:
-parse_DOCUMENT_START	lua/lyaml/ext/yaml/parser.c	/^parse_DOCUMENT_START (lyaml_parser *parser)$/;"	f	typeref:typename:void	file:
-parse_MAPPING_START	lua/lyaml/ext/yaml/parser.c	/^parse_MAPPING_START (lyaml_parser *parser)$/;"	f	typeref:typename:void	file:
-parse_SCALAR	lua/lyaml/ext/yaml/parser.c	/^parse_SCALAR (lyaml_parser *parser)$/;"	f	typeref:typename:void	file:
-parse_SEQUENCE_START	lua/lyaml/ext/yaml/parser.c	/^parse_SEQUENCE_START (lyaml_parser *parser)$/;"	f	typeref:typename:void	file:
-parse_STREAM_START	lua/lyaml/ext/yaml/parser.c	/^parse_STREAM_START (lyaml_parser *parser)$/;"	f	typeref:typename:void	file:
-parser	lua/lyaml/ext/yaml/parser.c	/^   yaml_parser_t  parser;$/;"	m	struct:__anonfbb607640108	typeref:typename:yaml_parser_t	file:
-parser	lua/lyaml/ext/yaml/scanner.c	/^   yaml_parser_t  parser;$/;"	m	struct:__anon80c4f3210108	typeref:typename:yaml_parser_t	file:
-parser_append_tag	lua/lyaml/ext/yaml/parser.c	/^parser_append_tag (lua_State *L, yaml_tag_directive_t tag)$/;"	f	typeref:typename:void	file:
-parser_delete_event	lua/lyaml/ext/yaml/parser.c	/^parser_delete_event (lyaml_parser *parser)$/;"	f	typeref:typename:void	file:
-parser_gc	lua/lyaml/ext/yaml/parser.c	/^parser_gc (lua_State *L)$/;"	f	typeref:typename:int	file:
-parser_generate_error_message	lua/lyaml/ext/yaml/parser.c	/^parser_generate_error_message (lyaml_parser *parser)$/;"	f	typeref:typename:void	file:
-parser_init	lua/lyaml/ext/yaml/parser.c	/^parser_init (lua_State *L)$/;"	f	typeref:typename:void
-parser_push_eventtable	lua/lyaml/ext/yaml/parser.c	/^parser_push_eventtable (lyaml_parser *parser, const char *v, int n)$/;"	f	typeref:typename:void	file:
-parser_set_mark	lua/lyaml/ext/yaml/parser.c	/^parser_set_mark (lua_State *L, const char *k, yaml_mark_t mark)$/;"	f	typeref:typename:void	file:
+on_attach	lua/lsp_config.lua	/^        on_attach = function(client, buffer)$/;"	f
 pencil	plugin_config.vim	/^augroup pencil$/;"	a
 prettier.disableSuccessMessage	coc-settings.json	/^  "prettier.disableSuccessMessage": true,$/;"	b
 prettier.eslintIntegration	coc-settings.json	/^  "prettier.eslintIntegration": true,$/;"	b
 prettier.singleQuote	coc-settings.json	/^  "prettier.singleQuote": true,$/;"	b
-prettier.stylelintIntegration	coc-settings.json	/^  "prettier.stylelintIntegration": false,$/;"	b
-r	lua/lyaml/build-aux/luke	/^local r=filter(parsed.targets,function(target)if target~='install'and luke.modules[target]==nil /;"	f
-require	lua/lyaml/build-aux/luke	/^local require=function(modname)if package.loaded[modname]==nil then$/;"	f
-return{CONFIGENV	lua/lyaml/build-aux/luke	/^return{CONFIGENV={compile='$CC -c $CFLAGS $CPPFLAGS',libs='',link='$CC $CFLAGS $CPPFLAGS $LDFLAG/;"	f
-return{ContextManager	lua/lyaml/build-aux/luke	/^return{ContextManager=ContextManager,CTest=function()local conftest=tmpname()return ContextManag/;"	f
-return{any	lua/lyaml/build-aux/luke	/^return{any=function(seq)for valu in each(seq)do$/;"	f
-return{build_c_module	lua/lyaml/build-aux/luke	/^return{build_c_module=function(L,env,luke,name)local rules=luke.modules[name]local c_module=c_mo/;"	f
-return{diagnose	lua/lyaml/build-aux/luke	/^return{diagnose=function(predicate,...)if not predicate then$/;"	f
-return{loadluke	lua/lyaml/build-aux/luke	/^return{loadluke=function(filename)local content,err=slurp(File(filename))if content==nil then$/;"	f
-return{main	lua/lyaml/build-aux/luke	/^return{main=function(args)local L=validate_arguments(parse_arguments(args))local env=makeenv(L.c/;"	f
-return{parse_arguments	lua/lyaml/build-aux/luke	/^return{parse_arguments=function(args)local r={clidefs={},valreqs={},fname='lukefile',install={},/;"	f
-rootPatterns	coc-settings.json	/^      "rootPatterns": ["go.mod", ".vim\/", ".git\/", ".hg\/"],$/;"	a	object:languageserver.golang
-s	lua/lyaml/build-aux/luke	/^s=gsub(r,pattern,function(varname)return env[varname]or''end)end$/;"	f
+prettier.stylelintIntegration	coc-settings.json	/^  "prettier.stylelintIntegration": true,$/;"	b
 s:check_back_space	plugin_config.vim	/^function! s:check_back_space() abort$/;"	f
-s:edit_file	plugin_config.vim	/^  function! s:edit_file(items)$/;"	f
-s:files	plugin_config.vim	/^  function! s:files()$/;"	f
 s:select_current_word	plugin_config.vim	/^function! s:select_current_word()$/;"	f
 s:show_documentation	plugin_config.vim	/^function! s:show_documentation()$/;"	f
-scan_ALIAS	lua/lyaml/ext/yaml/scanner.c	/^scan_ALIAS (lyaml_scanner *scanner)$/;"	f	typeref:typename:void	file:
-scan_ANCHOR	lua/lyaml/ext/yaml/scanner.c	/^scan_ANCHOR (lyaml_scanner *scanner)$/;"	f	typeref:typename:void	file:
-scan_SCALAR	lua/lyaml/ext/yaml/scanner.c	/^scan_SCALAR (lyaml_scanner *scanner)$/;"	f	typeref:typename:void	file:
-scan_STREAM_START	lua/lyaml/ext/yaml/scanner.c	/^scan_STREAM_START (lyaml_scanner *scanner)$/;"	f	typeref:typename:void	file:
-scan_TAG	lua/lyaml/ext/yaml/scanner.c	/^scan_TAG(lyaml_scanner *scanner)$/;"	f	typeref:typename:void	file:
-scan_TAG_DIRECTIVE	lua/lyaml/ext/yaml/scanner.c	/^scan_TAG_DIRECTIVE (lyaml_scanner *scanner)$/;"	f	typeref:typename:void	file:
-scan_VERSION_DIRECTIVE	lua/lyaml/ext/yaml/scanner.c	/^scan_VERSION_DIRECTIVE (lyaml_scanner *scanner)$/;"	f	typeref:typename:void	file:
-scanner_delete_token	lua/lyaml/ext/yaml/scanner.c	/^scanner_delete_token (lyaml_scanner *scanner)$/;"	f	typeref:typename:void	file:
-scanner_gc	lua/lyaml/ext/yaml/scanner.c	/^scanner_gc (lua_State *L)$/;"	f	typeref:typename:int	file:
-scanner_generate_error_message	lua/lyaml/ext/yaml/scanner.c	/^scanner_generate_error_message (lyaml_scanner *scanner)$/;"	f	typeref:typename:void	file:
-scanner_init	lua/lyaml/ext/yaml/scanner.c	/^scanner_init (lua_State *L)$/;"	f	typeref:typename:void
-scanner_push_tokentable	lua/lyaml/ext/yaml/scanner.c	/^scanner_push_tokentable (lyaml_scanner *scanner, const char *v, int n)$/;"	f	typeref:typename:void	file:
-scanner_set_mark	lua/lyaml/ext/yaml/scanner.c	/^scanner_set_mark (lua_State *L, const char *k, yaml_mark_t mark)$/;"	f	typeref:typename:void	file:
-setfenv	lua/lyaml/build-aux/luke	/^setfenv=function()end$/;"	f
-sexagesimal	lua/lyaml/lib/lyaml/implicit.lua	/^local function sexagesimal(value)$/;"	f
-sexfloat	lua/lyaml/lib/lyaml/implicit.lua	/^local function sexfloat(value)$/;"	f
-show_apis	lua/lyaml/spec/spec_helper.lua	/^function show_apis(argt)$/;"	f
-snippets.userSnippetsDirectory	coc-settings.json	/^  "snippets.userSnippetsDirectory": "~\/.config\/nvim\/snips"$/;"	s
-spy	lua/lyaml/spec/spec_helper.lua	/^spy = function(fn)$/;"	f
+snippets.userSnippetsDirectory	coc-settings.json	/^  "snippets.userSnippetsDirectory": "~\/.config\/nvim\/snips",$/;"	s
 ss	keys.vim	/^nmap <silent> ss :%s\/\\<<C-r><C-w>\\>\/<C-r><C-w>\/gI<Left><Left><Left>$/;"	m
 suggest.removeDuplicateItems	coc-settings.json	/^  "suggest.removeDuplicateItems": true,$/;"	b
-supported	lua/lyaml/build-aux/luke	/^local supported=toplatforms(CANON,popen('uname -s'):read'*l')local function isplatform(x)return /;"	f
-tabulate_output	lua/lyaml/spec/spec_helper.lua	/^local function tabulate_output(code)$/;"	f
 tabulousLabelNameOptions	plugin_config.vim	/^let tabulousLabelNameOptions = ':p:.'$/;"	v
-tag	lua/lyaml/lib/lyaml/init.lua	/^local function tag(name)$/;"	f
-targets	lua/lyaml/build-aux/luke	/^local targets=call(function()if isempty(parsed.targets)or contains(parsed.targets,'all')then$/;"	f
 templates	general.vim	/^augroup templates$/;"	a
-title	lua/lyaml/build-aux/config.ld.in	/^title = '@package@ @version@ Reference'$/;"	s
-tointeger	lua/lyaml/lib/lyaml/implicit.lua	/^local tointeger = (function(f)$/;"	f
-token	lua/lyaml/ext/yaml/scanner.c	/^   yaml_token_t	  token;$/;"	m	struct:__anon80c4f3210108	typeref:typename:yaml_token_t	file:
-token_iter	lua/lyaml/ext/yaml/scanner.c	/^token_iter (lua_State *L)$/;"	f	typeref:typename:int	file:
-try_compile	lua/lyaml/build-aux/luke	/^local function try_compile(L,env,config,headers)return with(CTest(),TmpFile(),function(conftest,/;"	f
-try_link	lua/lyaml/build-aux/luke	/^local function try_link(L,env,config,lib,symbol)return with(CTest(),TmpFile(),function(conftest,/;"	f
-trylibs	lua/lyaml/build-aux/luke	/^local trylibs=reduce(libraries,{''},function(r,lib)append(r,'-l'..lib)end)return dropuntil(tryli/;"	f
 tt	keys.vim	/^nmap <silent> tt :terminal<CR>$/;"	m
-type	lua/lyaml/lib/lyaml/init.lua	/^      type = function(self)$/;"	f
-unwrap_external_dependencies	lua/lyaml/build-aux/luke	/^local function unwrap_external_dependencies(luke)if istable(luke.external_dependencies)then$/;"	f
-validevent	lua/lyaml/ext/yaml/parser.c	/^   char		  validevent;$/;"	m	struct:__anonfbb607640108	typeref:typename:char	file:
-validtoken	lua/lyaml/ext/yaml/scanner.c	/^   char		  validtoken;$/;"	m	struct:__anon80c4f3210108	typeref:typename:char	file:
-vetur.useWorkspaceDependencies	coc-settings.json	/^  "vetur.useWorkspaceDependencies": true,$/;"	b
-weighting	lua/lyaml/build-aux/luke	/^local weighting=setmetatable(copy(configure),{__call=function(self,config)local t=config.t[confi/;"	f
-yamlbuff	lua/lyaml/ext/yaml/emitter.c	/^   luaL_Buffer	    yamlbuff;$/;"	m	struct:__anond2c682b10108	typeref:typename:luaL_Buffer	file:
-{append	lua/lyaml/build-aux/luke	/^return setmetatable({append=function(seq,v)local n=(int(seq.n)or len(seq))+1$/;"	f
-~	lua/lyaml/build-aux/luke	/^if type(package.preload[modname])~="function"then$/;"	f
-~	lua/lyaml/lib/lyaml/functional.lua	/^   if type(x) ~= 'function' then$/;"	f

@@ -4,13 +4,6 @@
   "diagnostic.hintSign": "⚠️",
   "diagnostic.infoSign": "⚠️",
   "diagnostic.enable": true,
-  "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
-    }
-  },
   "coc.preferences.formatOnSaveFiletypes": [
     "Markdown",
     "javascript",
@@ -20,11 +13,12 @@
     "html",
     "rust"
   ],
+  "eslint.filetypes": ["typescript"],
   "prettier.singleQuote": true,
   "prettier.eslintIntegration": true,
-  "prettier.stylelintIntegration": false,
+  "prettier.stylelintIntegration": true,
   "prettier.disableSuccessMessage": true,
   "suggest.removeDuplicateItems": true,
-  "vetur.useWorkspaceDependencies": true,
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snips"
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+  "diagnostic.displayByAle": true
 }

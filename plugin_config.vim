@@ -4,29 +4,24 @@ set background=dark
 let g:gruvbox_italic = 1
 let g:molokai_original = 1
 "let g:rehash256 = 1
-
-" colorscheme onedark
-colorscheme eighties
-
+" colorscheme gruvbox
+" colorscheme eighties
 " }}}
 
 " #ALE {{{
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 
-
+let b:ale_linters = ['eslint', 'vls']
 let b:ale_fixers = ['prettier', 'eslint']
 let g:ale_fix_on_save = 1 " Fix files automatically on save
-let g:ale_linters_explicit = 1
-let b:ale_warn_about_trailing_whitespace = 1
-let g:ale_open_list = 1
-let g:ale_set_balloons = 1
-
+"
 " Move between linting errors
-nmap <silent> [b <Plug>(ale_previous_wrap)
-nmap <silent> ]b <Plug>(ale_next_wrap)
+nmap <leader>e <Plug>(ale_previous_wrap)
+nmap <leader>E <Plug>(ale_next_wrap)
 
 nmap <F6> <Plug>(ale_fix)
+nnoremap <silent> gd :ALEGoToDefinition<cr>
 " }}}
 
 " #SUPERTAB {{{
@@ -44,7 +39,7 @@ let g:lightline = {
       \ 'colorscheme': 'one dark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'currentfunction','cocstatus', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'currentfunction', 'cocstatus', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component': {
       \   'charvaluehex': '0x%B'
@@ -67,10 +62,12 @@ let g:user_emmet_settings = {
 "}}}
 
 " #COC {{{
+
+let g:coc_global_extensions = ['coc-vetur', 'coc-tsserver', 'coc-pairs', 'coc-eslint', 'coc-snippets']
+
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-let g:coc_global_extensions = ['coc-vetur']
 
 " " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -86,6 +83,11 @@ nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>fh <Plug>(coc-float-hide)
 " " Use U to show documentation in preview window
 nnoremap <silent> U :call <SID>show_documentation()<CR>
+
+nmap <leader>qf  <Plug>(coc-fix-current)
+"
+" Show autocomplete when Tab is pressed
+inoremap <silent><expr> <Tab> coc#refresh()
 
 " " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)"
@@ -134,7 +136,6 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-
 "}}}
 
 " #MARKDOWN {{{
@@ -148,77 +149,33 @@ augroup pencil
   autocmd FileType md call pencil#init()
 augroup END
 "}}}
+"
+" -- Telescope
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For >")})<CR>
+nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
+nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
+"
+"
+"
+"UI
+"
+"
+" Editor theme
+set background=dark
+try
+  colorscheme OceanicNext
+catch
+  colorscheme slate
+endtry
 
+"
+"
+" }}}
 " #FZF {{{
 let g:fzf_command_prefix = 'FZF'
 nnoremap <Leader>b :FZFBuffers<CR>
 nnoremap <Leader>h :FZFHistory<CR>
-nnoremap <Leader>t :FZFBTags<CR>
 nnoremap <silent> <Leader>x :FZFCommits<CR>
-nnoremap <Leader>T :FZFTags<CR>
-" Have FZF list all tracked files plus untracked files minus ignored files
-nnoremap <Leader>p :FZFGitFiles --exclude-standard --others --cached<CR>
-nnoremap <Leader>gt :FZFRg<CR>
-
-" floating fzf window with borders
-"let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
-
-
-function! FZFWithDevIcons()
-  let l:fzf_files_options = ' -m --bind ctrl-d:preview-page-down,ctrl-u:preview-page-up --preview "bat --color always --style numbers {2..}"'
-
-  function! s:files()
-    let l:files = split(system($FZF_DEFAULT_COMMAND.'| devicon-lookup'), '\n')
-    return l:files
-  endfunction
-
-  function! s:edit_file(items)
-    let items = a:items
-    let i = 1
-    let ln = len(items)
-    while i < ln
-      let item = items[i]
-      let parts = split(item, ' ')
-      let file_path = get(parts, 1, '')
-      let items[i] = file_path
-      let i += 1
-    endwhile
-    call s:Sink(items)
-  endfunction
-
-  let opts = fzf#wrap({})
-  let opts.source = <sid>files()
-  let s:Sink = opts['sink*']
-  let opts['sink*'] = function('s:edit_file')
-  let opts.options .= l:fzf_files_options
-  call fzf#run(opts)
-endfunction
-
-" Open fzf Files
-nnoremap <silent> <C-p> :call FZFWithDevIcons()<CR>
-
-function! CreateCenteredFloatingWindow()
-    let width = min([&columns - 4, max([80, &columns - 20])])
-    let height = min([&lines - 4, max([20, &lines - 10])])
-    let top = ((&lines - height) / 2) - 1
-    let left = (&columns - width) / 2
-    let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
-
-    let top = "╭" . repeat("─", width - 2) . "╮"
-    let mid = "│" . repeat(" ", width - 2) . "│"
-    let bot = "╰" . repeat("─", width - 2) . "╯"
-    let lines = [top] + repeat([mid], height - 2) + [bot]
-    let s:buf = nvim_create_buf(v:false, v:true)
-    call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
-    call nvim_open_win(s:buf, v:true, opts)
-    set winhl=Normal:Floating
-    let opts.row += 1
-    let opts.height -= 2
-    let opts.col += 2
-    let opts.width -= 4
-    call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-    au BufWipeout <buffer> exe 'bw '.s:buf
-endfunction
 " }}}
 
 " #RIPGREP {{{
@@ -234,52 +191,7 @@ let g:conoline_auto_enable = 1
 let g:conoline_use_colorscheme_default_insert=1
 let g:conoline_use_colorscheme_default_normal=1
 " }}}
-
-" #VIM GO {{{
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
-
-" Disable code completion
-let g:go_code_completion_enabled = 0
-
-" Browser to use for |:GoPlay|, |:GoDocBrowser|, and |:GoLSPDebugBrowser|.
-let g:go_play_browser_command = 'firefox %URL% &'
-
-" Automatically import packages on save
-let g:go_fmt_command = "goimports"
-
-" Prevent errors from opening the location list
-let g:go_fmt_fail_silently = 1
-
-" Automatically get signature/type info for object under cursor
-let g:go_auto_type_info = 1
-
-" Open local documentation
-let g:go_doc_url = 'http://localhost:6060'
-
-" Search and easily navigate between the function and type definitions within
-" the package
-au FileType go nmap <leader>d :GoDeclsDir<cr>
-
-" Use snakecase for JSON tags
-let g:go_addtags_transform = "snakecase"
-
-" Disable go to definition
-let g:go_def_mapping_enabled=0
-
-" Prevent prefilling new files
-let g:go_template_autocreate = 0
-
-" Go vet
-au FileType go nmap <leader>gv <plug>(go-vet)
-" }}}
-
+"
 " #GUTENTAGS {{{
 let g:gutentags_file_list_command = "rg --files --follow --ignore-file '/home/ayo/.vimignore'"
 " }}}
@@ -315,6 +227,8 @@ let g:floaterm_autoclose=1
 let g:floaterm_height=0.95
 let g:floaterm_width=0.95
 " }}}
+"
+"
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -351,7 +265,6 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 command! FileHistory execute ":FZFBCommits"
 nmap cc :FZFCommands<CR>
 command! B execute "FZFBuffers"
-nmap <leader>f :Prettier<CR>
 nmap <leader>a :CtrlSF -R ""<Left>
 nmap <leader>t :call NeoI18nShow() <CR>
 nmap <leader>T :call NeoI18nAdd() <CR>
@@ -362,10 +275,10 @@ nmap <leader>d :FloatermNew! EDITOR=floaterm bash -c 'lazydocker'; exit<CR>
 "" Prettier settings"
 let g:prettier#config#single_quote = 'true'
 let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#autoformat = 1
+" let g:prettier#autoformat = 1
 let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#config#arrow_parens = 'avoid'
-let g:prettier#config#trailing_comma = 'es5'
+let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#print_width = '100'
 
 command! Filename execute ":echo expand('%:p')"
@@ -373,4 +286,4 @@ command! Config execute ":tabe ~/.config/nvim/init.vim"
 command! SourceConfig execute ":so ~/.config/nvim/init.vim"
 
 autocmd FileType scss setl iskeyword+=@-@
-
+autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}

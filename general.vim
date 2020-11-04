@@ -135,5 +135,5 @@ au BufRead,BufNewFile,BufReadPost *.json set syntax=json
 set guifont=DroidSansMono\ Nerd\ Font:h11
 let g:airline_powerline_fonts = 1
 
-let g:python3_host_prog = "/usr/bin/python3"
+let g:python3_host_prog = '/usr/local/bin/python3'
 let g:netrw_liststyle = 3
