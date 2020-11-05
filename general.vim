@@ -34,19 +34,6 @@ augroup templates
 augroup END
 "}}}
 
-" Stop concealing quotes in JSON
-let g:vim_json_syntax_conceal = 0
-
-" Enable JSX syntax highlighting in .js files
-let g:jsx_ext_required = 0
-
-":augroup numbertoggle
-":  autocmd!
-":  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-":  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-":augroup END
-
-
 " More natural split opening.
 set splitbelow
 set splitright
@@ -128,12 +115,7 @@ autocmd CompleteDone * pclose
 
 au BufRead,BufNewFile,BufReadPost *.json set syntax=json
 
-" Rainbow.vim
- let g:rainbow_active = 1
- set encoding=utf8
-
 set guifont=DroidSansMono\ Nerd\ Font:h11
 let g:airline_powerline_fonts = 1
 
 let g:python3_host_prog = '/usr/local/bin/python3'
-let g:netrw_liststyle = 3

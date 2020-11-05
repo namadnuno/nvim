@@ -13,14 +13,13 @@
     "html",
     "rust"
   ],
-  "eslint.filetypes": ["typescript"],
+  "eslint.filetypes": ["typescript", "vue"],
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
   "prettier.singleQuote": true,
   "prettier.eslintIntegration": true,
   "prettier.stylelintIntegration": true,
   "prettier.disableSuccessMessage": true,
   "suggest.removeDuplicateItems": true,
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
-  "diagnostic.displayByAle": true,
-  "coc.preferences.messageLevel": "error",
-  "eslint.quiet": true
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips"
 }

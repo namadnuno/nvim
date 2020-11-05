@@ -1,84 +1,122 @@
-local lsp        = require "nvim_lsp"
-local configs    = require "nvim_lsp/configs"
-local util       = require "nvim_lsp/util"
-local completion = require "completion"
 
-local sync_timeout = 150
+local lsp = require'nvim_lsp'
 
-function document_format_sync()
-    vim.lsp.buf.formatting_sync(ni, sync_timeout)
+local on_attach = function(client)
+  require'diagnostic'.on_attach(client)
+  require'completion'.on_attach(client)
+
+  local options = {
+    noremap = true,
+    silent = true
+  }
+
+  vim.api.nvim_set_keymap('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', options)
+  vim.api.nvim_set_keymap('n', 'K',     '<cmd>lua vim.lsp.buf.hover()<CR>', options)
+  vim.api.nvim_set_keymap('n', 'gD',    '<cmd>lua vim.lsp.buf.implementation()<CR>', options)
+  vim.api.nvim_set_keymap('n', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', options)
+  vim.api.nvim_set_keymap('n', '1gD',   '<cmd>lua vim.lsp.buf.type_definition()<CR>', options)
+  vim.api.nvim_set_keymap('n', 'gr',    '<cmd>lua vim.lsp.buf.references()<CR>', options)
+  vim.api.nvim_set_keymap('n', 'g0',    '<cmd>lua vim.lsp.buf.document_symbol()<CR>', options)
+  vim.api.nvim_set_keymap('n', 'gW',    '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', options)
+  vim.api.nvim_set_keymap('n', 'gd',    '<cmd>lua vim.lsp.buf.declaration()<CR>', options)
+  vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 end
 
-function document_format_and_organise_sync()
-    document_format_sync()
-end
--- -- typescript -- --
-configs.custom_typescript = {
-    default_config = {
-        cmd = {"typescript-language-server", "--stdio"},
-        filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx"
+-- bash
+lsp.bashls.setup{
+  on_attach = on_attach
+}
+
+-- css
+lsp.cssls.setup{
+  on_attach = on_attach
+}
+--
+-- vue
+lsp.vuels.setup{
+  on_attach = on_attach
+}
+
+-- general diagnostic server
+lsp.diagnosticls.setup{
+  on_attach = on_attach,
+  filetypes={ 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
+  init_options = {
+    linters = {
+      eslint = {
+        command = './node_modules/.bin/eslint',
+        rootPatterns = { '.git' },
+        debounce = 100,
+        args = {
+          '--stdin',
+          '--stdin-filename',
+          '%filepath',
+          '--format',
+          'json'
         },
-        root_dir = util.root_pattern("package.json", "tsconfig.jon", ".git")
-    }
+        sourceName = 'eslint',
+        parseJson = {
+          errorsRoot = '[0].messages',
+          line = 'line',
+          column = 'column',
+          endLine = 'endLine',
+          endColumn = 'endColumn',
+          message = '${message} [${ruleId}]',
+          security = 'severity'
+        },
+        securities = {
+          [2] = 'error',
+          [1] = 'warning',
+        },
+      },
+    },
+    filetypes = {
+      javascript = 'eslint',
+      typescript = 'eslint',
+      javascriptreact = 'eslint',
+      typescriptreact = 'eslint'
+    },
+    formatters = {
+      prettier = {
+        command = './node_modules/.bin/prettier',
+        args = { '--stdin-filepath', '%filepath', '--single-quote', '--print-width 120' }
+      }
+    },
+    formatFiletypes = {
+      javascript = 'prettier',
+      typescript = 'prettier',
+      javascriptreact = 'prettier',
+      typescriptreact = 'prettier'
+    },
+  }
 }
 
--- -- vue -- --
-configs.custom_vue = {
-    default_config = {
-        cmd = {"vls"},
-        filetypes = {"vue"},
-        root_dir = util.root_pattern("package.json", ".git"),
-        init_options = {
-            config = {
-                vetur = {
-                    validation = {
-                        templateProps = true,
-                    },
-                    completion = {
-                        tagCasing = "initial",
-                        autoImport = false,
-                        useScaffoldSnippets = false,
-                    },
-                    format = {
-                        defaultFormatter = {
-                            html = "prettier",
-                            pug = "prettier",
-                            css = "none",
-                            postcss = "prettier",
-                            scss = "prettier",
-                            less = "prettier",
-                            stylus = "stylus-supremacy",
-                            js = "prettier",
-                            ts = "prettier",
-                            sass = "sass-formatter"
-                        }
-                    },
-                    experimental = {
-                        templateInterpolationService = true,
-                    }
-                }
-            }
-        }
-    }
+-- html
+lsp.html.setup{
+  on_attach = on_attach
 }
 
-
-
-local configs = {
-    lsp.custom_typescript,
-    lsp.custom_vue,
+-- json
+lsp.jsonls.setup{
+  on_attach = on_attach
 }
 
-for i, config in pairs(configs) do
-    config.setup({
-        on_attach = function(client, buffer)
-            completion.on_attach(client, buffer)
-        end
-    })
-end
+-- rust
+lsp.rls.setup{
+  on_attach = on_attach
+}
+
+-- lua
+lsp.sumneko_lua.setup{
+  on_attach = on_attach
+}
+
+-- typescript
+lsp.tsserver.setup{
+  on_attach = on_attach
+}
+
+-- vim
+lsp.vimls.setup{
+  on_attach = on_attach
+}

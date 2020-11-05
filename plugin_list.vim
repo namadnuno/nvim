@@ -1,4 +1,3 @@
-let g:ale_disable_lsp = 1
 " #PLUGINS {{{
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -40,16 +39,18 @@ Plug 'joshdick/onedark.vim'
 
 " Autocompletion, Linting & Intellisense
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'dense-analysis/ale'
+
 " Neovim lsp Plugins
 " Plug 'neovim/nvim-lspconfig'
 " Plug 'nvim-lua/completion-nvim'
 " Plug 'tjdevries/nlua.nvim'
 " Plug 'tjdevries/lsp_extensions.nvim'
 " Plug 'nvim-lua/diagnostic-nvim'
+" Plug 'nvim-treesitter/nvim-treesitter' " nvim treesiter
 
-"Plug 'SirVer/ultisnips'
-Plug 'dense-analysis/ale'
-"Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
 "Plug 'algotech/ultisnips-php'
 Plug 'vim-test/vim-test'
 Plug 'cakebaker/scss-syntax.vim'
@@ -73,7 +74,6 @@ Plug 'luochen1990/rainbow'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
-Plug 'easymotion/vim-easymotion'
 Plug 'voldikss/vim-floaterm'
 Plug 'mlaursen/vim-react-snippets'
 Plug 'pechorin/any-jump.vim'
@@ -85,10 +85,6 @@ Plug 'vimwiki/vimwiki'
 " Plug 'nvim-lua/completion-nvim'
 
 "}}}
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-
 call plug#end()
 
 silent! helptags ALL
