@@ -8,31 +8,28 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/3f0ea94/
 $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;"	v
--	keys.vim	/^noremap - :tabm -1<CR>$/;"	m
 .x-class	templates/skeleton.scss	/^.x-class {$/;"	c
 0	coc-settings.json	/^    "Markdown",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
-0	coc-settings.json	/^  "eslint.filetypes": ["typescript", "vue"],$/;"	s	array:eslint.filetypes
+0	coc-settings.json	/^  "eslint.filetypes": ["typescript", "vue", "javascript"],$/;"	s	array:eslint.filetypes
 1	coc-settings.json	/^    "javascript",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
-1	coc-settings.json	/^  "eslint.filetypes": ["typescript", "vue"],$/;"	s	array:eslint.filetypes
+1	coc-settings.json	/^  "eslint.filetypes": ["typescript", "vue", "javascript"],$/;"	s	array:eslint.filetypes
 2	coc-settings.json	/^    "_typescript",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
+2	coc-settings.json	/^  "eslint.filetypes": ["typescript", "vue", "javascript"],$/;"	s	array:eslint.filetypes
 3	coc-settings.json	/^    "typescriptreact",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
 4	coc-settings.json	/^    "json",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
 5	coc-settings.json	/^    "html",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
-6	coc-settings.json	/^    "rust"$/;"	s	array:coc.preferences.formatOnSaveFiletypes
+6	coc-settings.json	/^    "rust",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
+7	coc-settings.json	/^    "puthon"$/;"	s	array:coc.preferences.formatOnSaveFiletypes
 <C-F>f	plugin_config.vim	/^nmap     <C-F>f <Plug>CtrlSFPrompt$/;"	m
 <C-F>n	plugin_config.vim	/^nmap     <C-F>n <Plug>CtrlSFCwordPath$/;"	m
 <C-F>p	plugin_config.vim	/^nmap     <C-F>p <Plug>CtrlSFPwordPath$/;"	m
-<C-N>	keys.vim	/^nnoremap <C-N> :tabnext<CR>$/;"	m
 <C-Space>	plugin_config.vim	/^imap <expr> <C-Space> emmet#expandAbbrIntelligent("\\<tab>")$/;"	m
-<C-b>	keys.vim	/^nnoremap <C-b> :tabprevious<CR>$/;"	m
+<C-\\>	plugin_config.vim	/^map <C-\\> :call ToggleNERDTree()<CR>$/;"	m
 <C-d>	coc.vim	/^nmap <expr> <silent> <C-d> <SID>select_current_word()$/;"	m
-<C-d>	coc_ale.vim	/^nmap <expr> <silent> <C-d> <SID>select_current_word()$/;"	m
 <C-j>	keys.vim	/^nnoremap <C-j> :m .+1<CR>==$/;"	m
 <C-j>	keys.vim	/^vnoremap <C-j> :m '>+1<CR>gv=gv$/;"	m
 <C-k>	keys.vim	/^nnoremap <C-k> :m .-2<CR>==$/;"	m
 <C-k>	keys.vim	/^vnoremap <C-k> :m '<-2<CR>gv=gv$/;"	m
-<C-n>	plugin_config.vim	/^map <C-n> :call ToggleNERDTree()<CR>$/;"	m
-<C-p>	plugin_config.vim	/^nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>$/;"	m
 <C-t>	keys.vim	/^nnoremap <C-t> :tabnew<CR>$/;"	m
 <F1>	keys.vim	/^inoremap <F1> <ESC>$/;"	m
 <F1>	keys.vim	/^nnoremap <F1> <ESC>$/;"	m
@@ -40,20 +37,18 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;
 <F2>	keys.vim	/^nnoremap <F2> :w<CR>$/;"	m
 <Leader>+	keys.vim	/^nnoremap <Leader>+ :vertical resize +5<CR>$/;"	m
 <Leader>-	keys.vim	/^nnoremap <Leader>- :vertical resize -5<CR>$/;"	m
-<Leader>b	plugin_config.vim	/^nnoremap <Leader>b :FZFBuffers<CR>$/;"	m
 <Leader>h	plugin_config.vim	/^nnoremap <Leader>h :FZFHistory<CR>$/;"	m
 <Leader>k	coc.vim	/^noremap <silent> <Leader>k :call <SID>show_documentation()<CR>$/;"	m
-<Leader>k	coc_ale.vim	/^noremap <silent> <Leader>k :call <SID>show_documentation()<CR>$/;"	m
-<Leader>pf	plugin_config.vim	/^nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>$/;"	m
 <Leader>r	keys.vim	/^nnoremap <Leader>r :so ~\/.config\/nvim\/init.vim<CR>$/;"	m
 <Leader>s	keys.vim	/^noremap <Leader>s :update<CR>$/;"	m
 <S-Tab>	keys.vim	/^inoremap <S-Tab> <C-d>$/;"	m
 <TAB>	coc.vim	/^inoremap <silent><expr> <TAB>$/;"	m
-<TAB>	coc_ale.vim	/^inoremap <silent><expr> <TAB>$/;"	m
 <Tab>	coc.vim	/^inoremap <silent><expr> <Tab> coc#refresh()$/;"	m
-<Tab>	coc_ale.vim	/^inoremap <silent><expr> <Tab> coc#refresh()$/;"	m
+<c-b>	plugin_config.vim	/^nnoremap <c-b> :FZFBuffers<CR>$/;"	m
+<c-p>	lsp_config.vim	/^imap <silent> <c-p> <Plug>(completion_trigger)$/;"	m
+<c-space>	coc.vim	/^inoremap <silent><expr> <c-space> coc#refresh()$/;"	m
 <cr>	coc.vim	/^inoremap <expr> <cr> pumvisible() ? "\\<C-y>" : "\\<C-g>u\\<CR>"$/;"	m
-<cr>	coc_ale.vim	/^inoremap <expr> <cr> pumvisible() ? "\\<C-y>" : "\\<C-g>u\\<CR>"$/;"	m
+<cr>	lsp_config.vim	/^imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?$/;"	m
 <leader>0	keys.vim	/^noremap <leader>0 :tablast<cr>$/;"	m
 <leader>1	keys.vim	/^noremap <leader>1 1gt$/;"	m
 <leader>2	keys.vim	/^noremap <leader>2 2gt$/;"	m
@@ -66,10 +61,10 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;
 <leader>9	keys.vim	/^noremap <leader>9 9gt$/;"	m
 <leader><space>	keys.vim	/^nnoremap <leader><space> :nohlsearch<CR>$/;"	m
 <leader>E	coc.vim	/^nmap <leader>E <Plug>(coc-diagnostic-prev)$/;"	m
-<leader>G	keys.vim	/^nnoremap <leader>G :Gdiff<CR>$/;"	m
+<leader>E	lsp_config.vim	/^nnoremap <leader>E <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>$/;"	m
+<leader>G	keys.vim	/^nnoremap <leader>G :Gvdiffsplit<CR>$/;"	m
 <leader>N	plugin_config.vim	/^map <leader>N :NERDTreeFind<CR>$/;"	m
 <leader>S	keys.vim	/^noremap <leader>S :set spell spelllang=en_us <CR>$/;"	m
-<leader>T	plugin_config.vim	/^nmap <leader>T :call NeoI18nAdd() <CR>$/;"	m
 <leader>a	plugin_config.vim	/^nmap <leader>a :CtrlSF -R ""<Left>$/;"	m
 <leader>cc	keys.vim	/^nnoremap <leader>cc :ccl<CR>$/;"	m
 <leader>cn	keys.vim	/^nnoremap <silent> <leader>cn :cnext<CR>$/;"	m
@@ -77,59 +72,50 @@ $NVIM_TUI_ENABLE_TRUE_COLOR	general.vim	/^  let $NVIM_TUI_ENABLE_TRUE_COLOR=1$/;
 <leader>cp	keys.vim	/^nnoremap <silent> <leader>cp :cprev<CR>$/;"	m
 <leader>d	plugin_config.vim	/^nmap <leader>d :FloatermNew! EDITOR=floaterm bash -c 'lazydocker'; exit<CR>$/;"	m
 <leader>e	coc.vim	/^nmap <leader>e  <Plug>(coc-diagnostic-next)$/;"	m
+<leader>e	lsp_config.vim	/^nnoremap <leader>e <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>$/;"	m
 <leader>ev	keys.vim	/^nnoremap <leader>ev :vsp $MYVIMRC<CR>$/;"	m
 <leader>f	coc.vim	/^nmap <leader>f  <Plug>(coc-format-selected)$/;"	m
 <leader>f	coc.vim	/^nmap <silent> <leader>f <Plug>(coc-format-selected)$/;"	m
 <leader>f	coc.vim	/^vmap <leader>f  <Plug>(coc-format-selected)$/;"	m
 <leader>f	coc.vim	/^xmap <leader>f  <Plug>(coc-format-selected)$/;"	m
-<leader>f	coc_ale.vim	/^nmap <leader>f  <Plug>(coc-format-selected)$/;"	m
-<leader>f	coc_ale.vim	/^nmap <silent> <leader>f <Plug>(coc-format-selected)$/;"	m
-<leader>f	coc_ale.vim	/^vmap <leader>f  <Plug>(coc-format-selected)$/;"	m
-<leader>f	coc_ale.vim	/^xmap <leader>f  <Plug>(coc-format-selected)$/;"	m
 <leader>fh	coc.vim	/^nmap <silent> <leader>fh <Plug>(coc-float-hide)$/;"	m
-<leader>fh	coc_ale.vim	/^nmap <silent> <leader>fh <Plug>(coc-float-hide)$/;"	m
 <leader>g	plugin_config.vim	/^nmap <leader>g :FloatermNew! EDITOR=floaterm bash -c 'lazygit'; exit<CR>$/;"	m
 <leader>gc	plugin_config.vim	/^nmap <leader>gc :Gcommit<CR>$/;"	m
 <leader>gj	plugin_config.vim	/^nmap <leader>gj <plug>(signify-next-hunk)$/;"	m
 <leader>gk	plugin_config.vim	/^nmap <leader>gk <plug>(signify-prev-hunk)$/;"	m
 <leader>gs	plugin_config.vim	/^nmap <leader>gs :Gstatus<CR>$/;"	m
 <leader>gw	plugin_config.vim	/^nmap <leader>gw :Gwrite<CR>$/;"	m
-<leader>ps	plugin_config.vim	/^nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep /;"	m
+<leader>p	plugin_config.vim	/^nnoremap <leader>p :FZFFiles<CR>$/;"	m
 <leader>q	keys.vim	/^nnoremap <leader>q :Bwipeout<CR>$/;"	m
 <leader>rn	coc.vim	/^nmap <leader>rn <Plug>(coc-rename)"$/;"	m
-<leader>rn	coc_ale.vim	/^nmap <leader>rn <Plug>(coc-rename)"$/;"	m
 <leader>s	keys.vim	/^nnoremap <leader>s :mksession<CR>$/;"	m
-<leader>t	plugin_config.vim	/^nmap <leader>t :call NeoI18nShow() <CR>$/;"	m
 <leader>w	keys.vim	/^nnoremap <leader>w :tabclose<CR>$/;"	m
+<s-tab>	lsp_config.vim	/^imap <s-tab> <Plug>(completion_smart_s_tab)$/;"	m
 <space>a	coc.vim	/^nnoremap <silent> <space>a  :CocList diagnostics<cr>$/;"	m
-<space>a	coc_ale.vim	/^nnoremap <silent> <space>a  :CocList diagnostics<cr>$/;"	m
 <space>c	coc.vim	/^nnoremap <silent> <space>c  :CocList commands<cr>$/;"	m
-<space>c	coc_ale.vim	/^nnoremap <silent> <space>c  :CocList commands<cr>$/;"	m
 <space>e	coc.vim	/^nnoremap <silent> <space>e  :CocList extensions<cr>$/;"	m
-<space>e	coc_ale.vim	/^nnoremap <silent> <space>e  :CocList extensions<cr>$/;"	m
 <space>j	coc.vim	/^nnoremap <silent> <space>j  :CocNext<CR>$/;"	m
-<space>j	coc_ale.vim	/^nnoremap <silent> <space>j  :CocNext<CR>$/;"	m
 <space>k	coc.vim	/^nnoremap <silent> <space>k  :CocPrev<CR>$/;"	m
-<space>k	coc_ale.vim	/^nnoremap <silent> <space>k  :CocPrev<CR>$/;"	m
 <space>o	coc.vim	/^nnoremap <silent> <space>o  :CocList outline<cr>$/;"	m
-<space>o	coc_ale.vim	/^nnoremap <silent> <space>o  :CocList outline<cr>$/;"	m
 <space>p	coc.vim	/^nnoremap <silent> <space>p  :CocListResume<CR>$/;"	m
-<space>p	coc_ale.vim	/^nnoremap <silent> <space>p  :CocListResume<CR>$/;"	m
 <space>s	coc.vim	/^nnoremap <silent> <space>s  :CocList -I symbols<cr>$/;"	m
-<space>s	coc_ale.vim	/^nnoremap <silent> <space>s  :CocList -I symbols<cr>$/;"	m
-=	keys.vim	/^noremap = :tabm +1<CR>$/;"	m
+<tab>	lsp_config.vim	/^imap <tab> <Plug>(completion_smart_tab)$/;"	m
 B	plugin_config.vim	/^command! B execute "FZFBuffers"$/;"	c
 Config	plugin_config.vim	/^command! Config execute ":tabe ~\/.config\/nvim\/init.vim"$/;"	c
 FileHistory	plugin_config.vim	/^command! FileHistory execute ":FZFBCommits"$/;"	c
 Filename	plugin_config.vim	/^command! Filename execute ":echo expand('%:p')"$/;"	c
-N	keys.vim	/^nnoremap N Nzz$/;"	m
+LspStatus	lsp_config.vim	/^ function! LspStatus() abort$/;"	f
+NERDTreeDirArrows	plugin_config.vim	/^let NERDTreeDirArrows = 1$/;"	v
+NERDTreeIgnore	plugin_config.vim	/^let NERDTreeIgnore = []$/;"	v
+NERDTreeMinimalUI	plugin_config.vim	/^let NERDTreeMinimalUI = 1$/;"	v
+NERDTreeShowHidden	plugin_config.vim	/^let NERDTreeShowHidden = 1$/;"	v
 NERDTreeShowHidden	plugin_config.vim	/^let NERDTreeShowHidden=1$/;"	v
+NERDTreeStatusline	plugin_config.vim	/^let NERDTreeStatusline = ''$/;"	v
 SourceConfig	plugin_config.vim	/^command! SourceConfig execute ":so ~\/.config\/nvim\/init.vim"$/;"	c
 ToggleNERDTree	plugin_config.vim	/^function! ToggleNERDTree()$/;"	f
 U	coc.vim	/^nnoremap <silent> U :call <SID>show_documentation()<CR>$/;"	m
-U	coc_ale.vim	/^nnoremap <silent> U :call <SID>show_documentation()<CR>$/;"	m
-[c	coc_ale.vim	/^nmap <silent> [c <Plug>(coc-diagnostic-prev)$/;"	m
-]c	coc_ale.vim	/^nmap <silent> ]c <Plug>(coc-diagnostic-next)$/;"	m
+b:ale_fixers	coc.vim	/^let b:ale_fixers = { $/;"	v
+b:ale_linters	coc.vim	/^let b:ale_linters = {$/;"	v
 cc	plugin_config.vim	/^nmap cc :FZFCommands<CR>$/;"	m
 coc.preferences.formatOnSaveFiletypes	coc-settings.json	/^  "coc.preferences.formatOnSaveFiletypes": [$/;"	a
 diagnostic.enable	coc-settings.json	/^  "diagnostic.enable": true,$/;"	b
@@ -139,26 +125,51 @@ diagnostic.infoSign	coc-settings.json	/^  "diagnostic.infoSign": "⚠️",$/;"	s
 diagnostic.warningSign	coc-settings.json	/^  "diagnostic.warningSign": "⚠️",$/;"	s
 eslint.autoFixOnSave	coc-settings.json	/^  "eslint.autoFixOnSave": true,$/;"	b
 eslint.enable	coc-settings.json	/^  "eslint.enable": true,$/;"	b
-eslint.filetypes	coc-settings.json	/^  "eslint.filetypes": ["typescript", "vue"],$/;"	a
+eslint.filetypes	coc-settings.json	/^  "eslint.filetypes": ["typescript", "vue", "javascript"],$/;"	a
+g:NERDTreeGitStatusIndicatorMapCustom	plugin_config.vim	/^let g:NERDTreeGitStatusIndicatorMapCustom = {$/;"	v
 g:SuperTabDefaultCompletionType	plugin_config.vim	/^let g:SuperTabDefaultCompletionType = "<c-n>"$/;"	v
+g:UltiSnipsEditSplit	lsp_config.vim	/^let g:UltiSnipsEditSplit="vertical"$/;"	v
+g:UltiSnipsExpandTrigger	lsp_config.vim	/^let g:UltiSnipsExpandTrigger="<tab>"                                            $/;"	v
+g:UltiSnipsJumpBackwardTrigger	lsp_config.vim	/^let g:UltiSnipsJumpBackwardTrigger="<s-tab>"$/;"	v
+g:UltiSnipsJumpForwardTrigger	lsp_config.vim	/^let g:UltiSnipsJumpForwardTrigger="<tab>"                                       $/;"	v
+g:UltiSnipsSnippetDirectories	lsp_config.vim	/^let g:UltiSnipsSnippetDirectories=[$HOME.'\/.config\/nvim\/snips']$/;"	v
 g:airline_powerline_fonts	general.vim	/^let g:airline_powerline_fonts = 1$/;"	v
-g:coc_global_extensions	coc.vim	/^let g:coc_global_extensions = ['coc-css', 'coc-vetur', 'coc-tsserver', 'coc-pairs', 'coc-eslint'/;"	v
-g:coc_global_extensions	coc_ale.vim	/^let g:coc_global_extensions = ['coc-css', 'coc-vetur', 'coc-tsserver', 'coc-pairs', 'coc-eslint'/;"	v
+g:ale_fix_on_save	coc.vim	/^let g:ale_fix_on_save = 1$/;"	v
+g:ale_lint_on_enter	coc.vim	/^let g:ale_lint_on_enter = 0$/;"	v
+g:ale_lint_on_insert_leave	coc.vim	/^let g:ale_lint_on_insert_leave = 0$/;"	v
+g:ale_lint_on_text_changed	coc.vim	/^let g:ale_lint_on_text_changed = 'never'$/;"	v
+g:ale_set_highlights	coc.vim	/^let g:ale_set_highlights = 0$/;"	v
+g:ale_set_loclist	coc.vim	/^let g:ale_set_loclist = 0$/;"	v
+g:ale_set_quickfix	coc.vim	/^let g:ale_set_quickfix = 1$/;"	v
+g:closetag_filenames	general.vim	/^let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php"$/;"	v
+g:coc_global_extensions	coc.vim	/^let g:coc_global_extensions = ['coc-css', 'coc-vetur', 'coc-tsserver', 'coc-eslint', 'coc-snippe/;"	v
 g:coc_snippet_next	coc.vim	/^let g:coc_snippet_next = '<tab>'$/;"	v
-g:coc_snippet_next	coc_ale.vim	/^let g:coc_snippet_next = '<tab>'$/;"	v
+g:completion_confirm_key	lsp_config.vim	/^let g:completion_confirm_key = ""$/;"	v
+g:completion_enable_auto_popup	lsp_config.vim	/^let g:completion_enable_auto_popup = 1$/;"	v
+g:completion_enable_snippet	lsp_config.vim	/^let g:completion_enable_snippet = 'UltiSnips'$/;"	v
+g:completion_matching_ignore_case	lsp_config.vim	/^let g:completion_matching_ignore_case = 1$/;"	v
 g:conoline_auto_enable	plugin_config.vim	/^let g:conoline_auto_enable = 1$/;"	v
 g:conoline_use_colorscheme_default_insert	plugin_config.vim	/^let g:conoline_use_colorscheme_default_insert=1$/;"	v
 g:conoline_use_colorscheme_default_normal	plugin_config.vim	/^let g:conoline_use_colorscheme_default_normal=1$/;"	v
+g:diagnostic_enable_underline	lsp_config.vim	/^let g:diagnostic_enable_underline = 1$/;"	v
+g:diagnostic_enable_virtual_text	lsp_config.vim	/^let g:diagnostic_enable_virtual_text = 1$/;"	v
+g:diagnostic_virtual_text_prefix	lsp_config.vim	/^let g:diagnostic_virtual_text_prefix = '━ '$/;"	v
 g:floaterm_autoclose	plugin_config.vim	/^let g:floaterm_autoclose=1$/;"	v
 g:floaterm_background	plugin_config.vim	/^let g:floaterm_background = "#282828"$/;"	v
 g:floaterm_border_bgcolor	plugin_config.vim	/^let g:floaterm_border_bgcolor = "#282828"$/;"	v
 g:floaterm_height	plugin_config.vim	/^let g:floaterm_height=0.95$/;"	v
 g:floaterm_keymap_new	plugin_config.vim	/^let g:floaterm_keymap_new    = "<F7>"$/;"	v
+g:floaterm_keymap_new	plugin_config.vim	/^let g:floaterm_keymap_new    = '<leader>tn'$/;"	v
+g:floaterm_keymap_new	plugin_config.vim	/^let g:floaterm_keymap_new = '<leader>f'$/;"	v
 g:floaterm_keymap_next	plugin_config.vim	/^let g:floaterm_keymap_next   = "<F9>"$/;"	v
+g:floaterm_keymap_next	plugin_config.vim	/^let g:floaterm_keymap_next   = '<leader>tN'$/;"	v
 g:floaterm_keymap_prev	plugin_config.vim	/^let g:floaterm_keymap_prev   = "<F8>"$/;"	v
+g:floaterm_keymap_prev	plugin_config.vim	/^let g:floaterm_keymap_prev   = '<leader>tp'$/;"	v
 g:floaterm_keymap_toggle	plugin_config.vim	/^let g:floaterm_keymap_toggle = "<F10>"$/;"	v
+g:floaterm_keymap_toggle	plugin_config.vim	/^let g:floaterm_keymap_toggle = '<leader>t'$/;"	v
 g:floaterm_position	plugin_config.vim	/^let g:floaterm_position = "bottom"$/;"	v
 g:floaterm_width	plugin_config.vim	/^let g:floaterm_width=0.95$/;"	v
+g:fzf_action	plugin_config.vim	/^let g:fzf_action = {$/;"	v
 g:fzf_command_prefix	plugin_config.vim	/^let g:fzf_command_prefix = 'FZF'$/;"	v
 g:gruvbox_italic	plugin_config.vim	/^let g:gruvbox_italic = 1$/;"	v
 g:lightline	plugin_config.vim	/^let g:lightline = {$/;"	v
@@ -166,43 +177,38 @@ g:markdown_fenced_languages	plugin_config.vim	/^let g:markdown_fenced_languages 
 g:molokai_original	plugin_config.vim	/^let g:molokai_original = 1$/;"	v
 g:pencil#textwidth	plugin_config.vim	/^let g:pencil#textwidth = 80$/;"	v
 g:python3_host_prog	general.vim	/^let g:python3_host_prog = '\/usr\/local\/bin\/python3'$/;"	v
+g:rigel_lightline	plugin_config.vim	/^let g:rigel_lightline = 1$/;"	v
 g:signify_vcs_list	plugin_config.vim	/^let g:signify_vcs_list = [ 'git' ]$/;"	v
 g:tabulousLabelNameTruncate	plugin_config.vim	/^let g:tabulousLabelNameTruncate = 0$/;"	v
 g:user_emmet_expandabbr_key	plugin_config.vim	/^let g:user_emmet_expandabbr_key='<C-@>'$/;"	v
 g:user_emmet_settings	plugin_config.vim	/^let g:user_emmet_settings = {$/;"	v
 g:vim_markdown_folding_disabled	plugin_config.vim	/^let g:vim_markdown_folding_disabled = 1$/;"	v
 gd	coc.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m
-gd	coc_ale.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m
 gdh	keys.vim	/^nnoremap gdh :diffget \/\/2<CR>$/;"	m
 gdl	keys.vim	/^nnoremap gdl :diffget \/\/3<CR>$/;"	m
 gi	coc.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
-gi	coc_ale.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
 gr	coc.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m
-gr	coc_ale.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m
 gy	coc.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m
-gy	coc_ale.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m
+html_no_rendering	general.vim	/^let html_no_rendering = 1$/;"	v
 ic	plugin_config.vim	/^omap ic <plug>(signify-motion-inner-pending)$/;"	m
 ic	plugin_config.vim	/^xmap ic <plug>(signify-motion-inner-visual)$/;"	m
 jj	keys.vim	/^inoremap jj <esc>$/;"	m
 main	templates/skeleton.rs	/^fn main() {$/;"	f
 mapleader	keys.vim	/^let mapleader = ","$/;"	v
-n	keys.vim	/^nnoremap n nzz$/;"	m
 on_attach	lua/lsp_config.lua	/^local on_attach = function(client)$/;"	f
 pencil	plugin_config.vim	/^augroup pencil$/;"	a
 prettier.disableSuccessMessage	coc-settings.json	/^  "prettier.disableSuccessMessage": true,$/;"	b
 prettier.eslintIntegration	coc-settings.json	/^  "prettier.eslintIntegration": true,$/;"	b
 prettier.singleQuote	coc-settings.json	/^  "prettier.singleQuote": true,$/;"	b
 prettier.stylelintIntegration	coc-settings.json	/^  "prettier.stylelintIntegration": true,$/;"	b
+python.formatting.blackPath	coc-settings.json	/^  "python.formatting.blackPath": "python -m black"$/;"	s
+python.formatting.enabled	coc-settings.json	/^  "python.formatting.enabled": "on",$/;"	s
+python.formatting.provider	coc-settings.json	/^  "python.formatting.provider": "black",$/;"	s
 qf	coc.vim	/^nnoremap <silent> qf  :CocFix<CR>$/;"	m
-qf	coc_ale.vim	/^nnoremap <silent> qf  :CocFix<CR>$/;"	m
 s:check_back_space	coc.vim	/^function! s:check_back_space() abort$/;"	f
-s:check_back_space	coc_ale.vim	/^function! s:check_back_space() abort$/;"	f
 s:select_current_word	coc.vim	/^function! s:select_current_word()$/;"	f
-s:select_current_word	coc_ale.vim	/^function! s:select_current_word()$/;"	f
 s:show_documentation	coc.vim	/^function! s:show_documentation()$/;"	f
-s:show_documentation	coc_ale.vim	/^function! s:show_documentation()$/;"	f
-snippets.userSnippetsDirectory	coc-settings.json	/^  "snippets.userSnippetsDirectory": "~\/.config\/nvim\/snips"$/;"	s
-ss	keys.vim	/^nmap <silent> ss :%s\/\\<<C-r><C-w>\\>\/<C-r><C-w>\/gI<Left><Left><Left>$/;"	m
+snippets.userSnippetsDirectory	coc-settings.json	/^  "snippets.userSnippetsDirectory": "~\/.config\/nvim\/snips",$/;"	s
 suggest.removeDuplicateItems	coc-settings.json	/^  "suggest.removeDuplicateItems": true,$/;"	b
 tabulousLabelNameOptions	plugin_config.vim	/^let tabulousLabelNameOptions = ':p:.'$/;"	v
 templates	general.vim	/^augroup templates$/;"	a

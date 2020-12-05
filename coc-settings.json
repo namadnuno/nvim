@@ -11,9 +11,10 @@
     "typescriptreact",
     "json",
     "html",
-    "rust"
+    "rust",
+    "puthon"
   ],
-  "eslint.filetypes": ["typescript", "vue"],
+  "eslint.filetypes": ["typescript", "vue", "javascript"],
   "eslint.enable": true,
   "eslint.autoFixOnSave": true,
   "prettier.singleQuote": true,
@@ -21,5 +22,8 @@
   "prettier.stylelintIntegration": true,
   "prettier.disableSuccessMessage": true,
   "suggest.removeDuplicateItems": true,
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snips"
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+  "python.formatting.enabled": "on",
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "python -m black"
 }

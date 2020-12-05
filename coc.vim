@@ -1,5 +1,5 @@
 "" #COC {{{
-let g:coc_global_extensions = ['coc-css', 'coc-vetur', 'coc-tsserver', 'coc-pairs', 'coc-eslint', 'coc-snippets']
+let g:coc_global_extensions = ['coc-css', 'coc-vetur', 'coc-tsserver', 'coc-eslint', 'coc-snippets', 'coc-phpls', 'coc-python']
 
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -89,4 +89,32 @@ function! s:select_current_word()
   endif
   return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
 endfunc
+
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+let g:ale_set_highlights = 0
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_set_quickfix = 1
+let g:ale_set_loclist = 0
+
+let b:ale_linters = {
+      \ 'php': ['php'],
+      \ 'vue': [ 'vls', 'eslint' ],
+      \ 'typescript': [ 'eslint' ],
+      \ 'javascript': [ 'eslint' ],
+      \ }
+let b:ale_fixers = { 
+      \ 'javascript': ['prettier', 'eslint'],
+      \ 'typescript': ['prettier', 'eslint'],
+      \ 'vue': ['eslint', 'vls'],
+      \ 'php': ['phpcbf']
+      \ }
+
 

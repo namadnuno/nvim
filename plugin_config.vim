@@ -1,6 +1,5 @@
 " #GRUVBOX Material {{{
 set termguicolors
-set background=dark
 let g:gruvbox_italic = 1
 let g:molokai_original = 1
 "let g:rehash256 = 1
@@ -8,19 +7,26 @@ let g:molokai_original = 1
 " colorscheme eighties
 " }}}
 
-" " #Lightline {{{
+" AirLine {{{
 
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_tabs = 1
+" let g:shades_of_purple_airline = 1
+" let g:airline_theme='nord'
+"
+" LightLine
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+let g:rigel_lightline = 1
 let g:lightline = {
-      \ 'colorscheme': 'one dark',
+      \ 'colorscheme': 'rigel',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component': {
-      \   'charvaluehex': '0x%B'
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'lspstatus' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead',
+      \   'lspstatus': 'LspStatus'
       \ },
       \ }
 
@@ -46,20 +52,14 @@ augroup pencil
 augroup END
 "}}}
 "
-" -- Telescope
-nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For >")})<CR>
-nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
-nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
-"
-"
-"
+
 "UI
 "
 "
 " Editor theme
-set background=dark
+" set background=dark
 try
-  colorscheme OceanicNext
+  colorscheme xcodedarkhc
 catch
   colorscheme slate
 endtry
@@ -69,7 +69,14 @@ endtry
 " }}}
 " #FZF {{{
 let g:fzf_command_prefix = 'FZF'
-nnoremap <Leader>b :FZFBuffers<CR>
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+nnoremap <c-b> :FZFBuffers<CR>
+nnoremap <leader>p :FZFFiles<CR>
 nnoremap <Leader>h :FZFHistory<CR>
 " }}}
 
@@ -130,14 +137,8 @@ function! ToggleNERDTree()
   " Set NERDTree instances to be mirrored
   silent NERDTreeMirror
 endfunction
-map <C-n> :call ToggleNERDTree()<CR>
+map <C-\> :call ToggleNERDTree()<CR>
 map <leader>N :NERDTreeFind<CR>
-
-" Snippets
-" let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/snips']
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 
 "Tabolus
@@ -153,13 +154,19 @@ command! FileHistory execute ":FZFBCommits"
 nmap cc :FZFCommands<CR>
 command! B execute "FZFBuffers"
 nmap <leader>a :CtrlSF -R ""<Left>
-nmap <leader>t :call NeoI18nShow() <CR>
-nmap <leader>T :call NeoI18nAdd() <CR>
+" nmap <leader>t :call NeoI18nShow() <CR>
+" nmap <leader>T :call NeoI18nAdd() <CR>
 
 nmap <leader>g :FloatermNew! EDITOR=floaterm bash -c 'lazygit'; exit<CR>
 nmap <leader>d :FloatermNew! EDITOR=floaterm bash -c 'lazydocker'; exit<CR>
+let g:floaterm_keymap_new = '<leader>f'
 
-"" Prettier settings"
+let g:floaterm_keymap_new    = '<leader>tn'
+let g:floaterm_keymap_prev   = '<leader>tp'
+let g:floaterm_keymap_next   = '<leader>tN'
+let g:floaterm_keymap_toggle = '<leader>t'
+
+"" Prettier settings"Leader>
 " let g:prettier#config#single_quote = 'true'
 " let g:prettier#config#bracket_spacing = 'true'
 " " let g:prettier#autoformat = 1
@@ -174,4 +181,28 @@ command! SourceConfig execute ":so ~/.config/nvim/init.vim"
 
 autocmd FileType scss setl iskeyword+=@-@
 "autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
+
+
+"NERDTree
+"
+let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeIgnore = []
+let NERDTreeStatusline = ''
+
+"nerdtree-git-plugin
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
 

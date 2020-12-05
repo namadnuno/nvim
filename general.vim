@@ -2,7 +2,7 @@
 filetype off
 
 filetype plugin indent on    " required
-runtime macros/matchit.vim
+" runtime macros/matchit.vim
 
 syntax enable
 
@@ -14,6 +14,14 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+if has("patch-7.4.710")
+    set listchars=eol:~,tab:>.,trail:~,extends:>,precedes:<,space:_
+else
+    set listchars=eol:~,tab:>.,trail:~,extends:>,precedes:<
+endif
+
+scriptencoding utf-8
+set encoding=utf-8
 
 set t_8b=^[[48;2;%lu;%lu;%lum
 set t_8f=^[[38;2;%lu;%lu;%lum
@@ -101,14 +109,15 @@ set updatetime=300
 
 " Enable word completion
 set complete+=kspell
+set mouse=a
 
 hi NonText guifg=#4a4a59
 hi SpecialKey guifg=white guibg=#cc0000
 
 " Strip trailing whitespace from all files
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre * %s/\s\+$//e
 
 " Automatically remove the preview window after autocompletion
 autocmd CompleteDone * pclose
@@ -119,3 +128,8 @@ set guifont=DroidSansMono\ Nerd\ Font:h11
 let g:airline_powerline_fonts = 1
 
 let g:python3_host_prog = '/usr/local/bin/python3'
+let html_no_rendering = 1
+
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php"
+autocmd Filetype php setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.blade.php set ft=blade

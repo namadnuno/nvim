@@ -283,4 +283,10 @@ snip.rv = re.match(r'.*(?=\.)', fn).group()
 }
 endsnippet
 
+snippet foreach "foreach ($var as $value) { .. }"
+	foreach ($${1:variable} as $${2:value}) {
+		${0:${VISUAL}}
+	}
+endsnippet
+
 # :vim:ft=snippets:
