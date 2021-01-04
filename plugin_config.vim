@@ -15,7 +15,7 @@ let g:molokai_original = 1
 " let g:airline_theme='nord'
 "
 " LightLine
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 let g:rigel_lightline = 1
 let g:lightline = {
@@ -59,7 +59,7 @@ augroup END
 " Editor theme
 " set background=dark
 try
-  colorscheme xcodedarkhc
+  colorscheme rigel
 catch
   colorscheme slate
 endtry
@@ -76,8 +76,12 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 nnoremap <c-b> :FZFBuffers<CR>
-nnoremap <leader>p :FZFFiles<CR>
-nnoremap <Leader>h :FZFHistory<CR>
+nnoremap <c-p> :FZFFiles<CR>
+nnoremap <c-h> :FZFHistory<CR>
+nnoremap <c-s> :FZFRg<CR>
+nnoremap <c-l> :FZFBLines<CR>
+
+let g:fzf_preview_window = ['up:0%', 'ctrl-/']
 " }}}
 
 " #RIPGREP {{{
@@ -129,7 +133,7 @@ let g:floaterm_width=0.95
 " Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
 
 function! ToggleNERDTree()
@@ -184,14 +188,14 @@ autocmd FileType scss setl iskeyword+=@-@
 
 
 "NERDTree
-"
-let NERDTreeShowHidden = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeIgnore = []
-let NERDTreeStatusline = ''
+""
+"let NERDTreeShowHidden = 1
+"let NERDTreeMinimalUI = 1
+"let NERDTreeDirArrows = 1
+"let NERDTreeIgnore = []
+"let NERDTreeStatusline = ''
 
-"nerdtree-git-plugin
+""nerdtree-git-plugin
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -205,4 +209,10 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
 

@@ -118,3 +118,4 @@ let b:ale_fixers = {
       \ }
 
 
+autocmd CursorHold * silent call CocActionAsync('highlight')

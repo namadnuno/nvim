@@ -16,7 +16,9 @@
   ],
   "eslint.filetypes": ["typescript", "vue", "javascript"],
   "eslint.enable": true,
+  "eslint.quiet": true,
   "eslint.autoFixOnSave": true,
+  "eslint.run": "onSave",
   "prettier.singleQuote": true,
   "prettier.eslintIntegration": true,
   "prettier.stylelintIntegration": true,
@@ -26,4 +28,7 @@
   "python.formatting.enabled": "on",
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "python -m black"
+  "coc.source.emmet.showExpandedAbbreviation": true,
+  "coc.source.emmet.showAbbreviationSuggestions": true,
+  "coc.source.emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
 }

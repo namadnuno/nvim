@@ -31,24 +31,22 @@ Plug 'webdevel/tabulous'
 Plug 'joshdick/onedark.vim'
 Plug 'psliwka/vim-smoothie'
 
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
 " Autocompletion, Linting & Intellisense
-" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'dense-analysis/ale'
 
 " Neovim lsp Plugins
-Plug 'neovim/nvim-lsp'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'tjdevries/nlua.nvim'
-Plug 'tjdevries/lsp_extensions.nvim'
-Plug 'nvim-treesitter/nvim-treesitter' " nvim treesiter
-Plug 'Iron-E/nvim-highlite'
-Plug 'nvim-lua/lsp-status.nvim'
+" Plug 'neovim/nvim-lsp'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'tjdevries/nlua.nvim'
+" Plug 'tjdevries/lsp_extensions.nvim'
 
+Plug 'vim-test/vim-test'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
@@ -60,7 +58,8 @@ Plug 'cakebaker/scss-syntax.vim'
 
 " Utilitied
 Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'kyazdani42/nvim-tree.lua'
 Plug 'airblade/vim-rooter'
 Plug 'moll/vim-bbye'
 Plug 'mattn/emmet-vim'
@@ -71,6 +70,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'godlygeek/tabular'
+Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'romgrk/barbar.nvim'
+
 " Plug 'tpope/vim-unimpaired'
 " Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-obsession'
@@ -88,8 +90,16 @@ Plug 'jiangmiao/auto-pairs'
 " Plug 'Rigellute/shades-of-purple.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'Rigellute/rigel'
+Plug 'sonph/onehalf'
 
 "}}}
 call plug#end()
 
 silent! helptags ALL
+
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
