@@ -128,7 +128,7 @@ diagnostic.errorSign	coc-settings.json	/^  "diagnostic.errorSign": "❌",$/;"	s
 diagnostic.hintSign	coc-settings.json	/^  "diagnostic.hintSign": "⚠️",$/;"	s
 diagnostic.infoSign	coc-settings.json	/^  "diagnostic.infoSign": "⚠️",$/;"	s
 diagnostic.warningSign	coc-settings.json	/^  "diagnostic.warningSign": "⚠️",$/;"	s
-eslint.autoFixOnSave	coc-settings.json	/^  "eslint.autoFixOnSave": true,$/;"	b
+eslint.autoFixOnSave	coc-settings.json	/^  "eslint.autoFixOnSave": false,$/;"	b
 eslint.enable	coc-settings.json	/^  "eslint.enable": true,$/;"	b
 eslint.filetypes	coc-settings.json	/^  "eslint.filetypes": ["typescript", "vue", "javascript"],$/;"	a
 eslint.quiet	coc-settings.json	/^  "eslint.quiet": true,$/;"	b

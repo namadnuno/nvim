@@ -59,7 +59,7 @@ augroup END
 " Editor theme
 " set background=dark
 try
-  colorscheme rigel
+  colorscheme xcodedark
 catch
   colorscheme slate
 endtry

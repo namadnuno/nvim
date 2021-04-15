@@ -1,5 +1,5 @@
 "" #COC {{{
-let g:coc_global_extensions = ['coc-css', 'coc-vetur', 'coc-tsserver', 'coc-eslint', 'coc-snippets', 'coc-phpls', 'coc-python']
+let g:coc_global_extensions = ['coc-css', 'coc-vetur', 'coc-tsserver', 'coc-eslint', 'coc-snippets', 'coc-phpls', 'coc-pyright']
 
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif

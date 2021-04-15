@@ -17,7 +17,7 @@
   "eslint.filetypes": ["typescript", "vue", "javascript"],
   "eslint.enable": true,
   "eslint.quiet": true,
-  "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": false,
   "eslint.run": "onSave",
   "prettier.singleQuote": true,
   "prettier.eslintIntegration": true,
